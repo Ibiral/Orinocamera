@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description"
+        content="Orinocamera est le leader des boutiques en ligne des appareils photo et de caméras vintage du premier choix.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index,follow">
+    <link rel="shortcut icon" type="image/jpg" href="images/favicon.jpg">
+
+
+    <!--css-->
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css"
+        integrity="sha512-oc9+XSs1H243/FRN9Rw62Fn8EtxjEYWHXRvjS43YtueEewbS6ObfXcJNyohjHqVKFPoXXUxwc+q1K7Dee6vv9g=="
+        crossorigin="anonymous" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+
+    <!--Js-->
+    <!-- <script src="script.js" defer></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"
+        integrity="sha512-8qmis31OQi6hIRgvkht0s6mCOittjMa9GMqtK9hes5iEQBQE/Ca6yGE5FsW36vyipGoWQswBj/QBm2JR086Rkw=="
+        crossorigin="anonymous" defer></script> -->
+    <script src="js/dataManager.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/product.js" defer></script>
+
+    <!-- Open Graph et Twitter-->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Orinocamera Vintage | Specialiste de la photo">
+    <meta property="og:description"
+        content="Orinocamera est le leader des boutiques en ligne des appareils photo et de caméras vintage du premier choix.">
+    <meta property="og:url" content="https://ibiral.github.io/oricamera/">
+    <meta property="og:site_name" content="orinocamera">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@orinocamera">
+    <meta name="twitter:title" content="Orinocamera Vintage | Specialiste de la photo">
+    <meta property="twitter:description"
+        content="Orinocamera est le leader des boutiques en ligne des appareils photo et de caméras vintage du premier choix.">
+
+    <title>Orinocamera</title>
+</head>
+
+<body>
+    <header>
+        <div class="overlay"></div>
+        <nav>
+            <a href="index.html">
+                <h1>ORINOCAMERA
+                    <span><i class="fas fa-camera-retro"></i></span>
+                </h1>
+            </a>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="#">À propos</a></li>
+                <li class="basket">
+                    <a href="basket.html">
+                        <i class="fas fa-shopping-basket"></i>Panier<span>0</span>
+                    </a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="main">
+            <div class="selected-product">
+                <h2 id="product-name"></h2>
+                <div id="imageContainer"></div>
+                <h3>Caractéristiques</h3>
+                <p id="description"></p>
+                <h4>Lentilles :</h4>
+                <p id="lentilles"></p>
+            </div>
+
+            <div class="product-price">
+                <span id="selected-price"></span>
+                <button onclick="window.location.href = 'basket.html'">AJOUTER AU PANIER</button>
+
+                <p><strong>produit neuf</strong></p>
+
+                <ul>
+                    <li>Consulter la disponibilité en magasin</li>
+                    <li>Retrait en magasin ou en drive - offert</li>
+                    <li>Livraison chez vous <strong>dès vendredi 13 décembre</strong></li>
+                </ul>
+
+                <h4>GARANTIE</h4>
+                <p>Garantie 2 ans, pièces et main d'oeuvre</p>
+
+                <h4>SERVICES INCLUS</h4>
+                <ul>
+                    <li>Frais de port offerts</li>
+                    <li>Reprise de l'ancien appareil</li>
+                    <li>15 jours pour changer d'avis</li>
+                    <li>Expédié sous 24h</li>
+                </ul>
+
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p class="legal-notice">Mentions légales</p>
+        <p class="contact">Contactez-nous</p>
+    </footer>
+</body>
+
+</html>

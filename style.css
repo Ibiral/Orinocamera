@@ -1,0 +1,362 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+header {
+    background-image: url("images/vcam_5.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 150px;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    right: 0;
+    bottom: 0;
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: rgba(10, 10, 10, 0.3)
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 50px 60px 0 60px;
+}
+
+nav li {
+    list-style: none;
+    display: inline-block;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+nav li span {
+    padding-left: 5px;
+}
+
+li a {
+    padding: 5px;
+    background-color: #fff;
+    text-decoration: none;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+.basket i {
+    vertical-align: top;
+    font-size: 20px;
+    padding-top: 1px;
+    padding-right: 5px;
+}
+
+.basket a {
+    background-color: royalblue;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+/*INDEX.HTML*/
+
+.container,
+.products-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    padding-bottom: 100px;
+}
+
+.image {
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.add-basket {
+    position: absolute;
+    width: 100%;
+    background-color: darkgrey;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    cursor: pointer;
+    text-align: center;
+}
+
+.image:hover .basket1,
+.image:hover .basket2,
+.image:hover .basket3,
+.image:hover .basket4,
+.image:hover .basket5 {
+    bottom: 50px;
+    opacity: 1;
+    padding: 10px;
+    text-decoration: none;
+}
+
+h1 {
+    color: white;
+    font-size: 1.6em;
+    font-family: serif;
+}
+
+h1 a {
+    text-decoration: none;
+}
+
+h2,
+h3 {
+    text-align: center;
+}
+
+.info {
+    display: block;
+    width: 30%;
+    margin: auto;
+    padding: 5px;
+    background-color: #823232;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.info:hover {
+    background-color: #cc6e6e;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    height: 5%;
+    padding: 0 20px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("images/vcam_4.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 50px;
+}
+
+footer p {
+    font-size: 1.2em;
+    color: antiquewhite;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+footer p:hover {
+    color: white;
+}
+
+
+/* BASKET.HTML */
+
+.products-container {
+    max-width: 650px;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.product-header {
+    width: 500px;
+    max-width: 650px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 4px solid lightgrey;
+    margin: 0 auto;
+}
+
+.products-basket {
+    width: 600px;
+    display: flex;
+    justify-content: space-around;
+}
+
+ul{
+    list-style-type: none;
+} 
+
+                                                /* Formulaire */
+
+form {
+    width: 30%;
+    margin: auto auto 70px;
+    padding: 5px;
+    background-color: #b77272;
+}
+
+form h1 {
+    text-align: center;
+}
+
+form h2,
+form h3 {
+    text-align: left;
+}
+
+.pay-mode,
+.credit-card,
+.infos {
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    width: 60px;
+    background-color: #651717;
+    color: white;
+}
+
+div.image img {
+    max-width: 250px;
+    height: 200px;
+}
+
+
+/*PRODUCT.HTML*/
+
+.main {
+    max-width: 80%;
+    margin: 40px auto 100px;
+}
+
+img.photo {
+    width: 100%;
+}
+.selected-product h2 {
+    font-size: 1.2em;
+    color: #3b3b3b;
+    line-height: 31px;
+    font-weight: normal;
+}
+
+.selected-product h3 {
+    font-weight: normal;
+    width: 140px;
+    margin: 10px;
+    color: #0096b1;
+    border-bottom: 2px solid #0096b1;
+}
+
+.selected-product h3:hover {
+    color: #00b190;
+    border-bottom: 2px solid #00b190;
+    cursor: pointer;
+}
+
+h4 {
+    padding-top: 10px;
+    color: #0096b1;
+    font-weight: normal;
+}
+
+/* .selected-product p {
+    margin-bottom: 70px;
+} */
+
+main p {
+    font-size: 0.8em;
+    font-family: cursive, verdana, sans-serif;
+}
+
+.product-price button {
+    width: 180px;
+    margin-left: 100px;
+    padding: 12px;
+    background-color: #b15050;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+    top: 400px;
+    left: 40px;
+}
+
+.product-price button:hover {
+    background-color: #cc5a5a;
+}
+
+.product-price span {
+    font-weight: 700;
+    font-size: 1.5em;
+    position: relative;
+    top: 430px;
+    left: 0
+}
+
+.product-price p,
+.product-price ul {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #c8c8c8;
+}
+
+.product-price li {
+    list-style-type: none;
+    height: 25px;
+    font-size: 13px;
+    font-family: cursive, verdana, sans-serif;
+}
+
+.product-price h4 {
+    padding-top: 10px;
+}
+
+
+/*RESPONSIVE DESIGN*/
+
+@media screen and (min-width: 768px) {
+    .main {
+        display: grid;
+        grid-template-areas: "div1 div2";
+        margin-bottom: 0px;
+    }
+    .selected-product {
+        grid-area: div1;
+        width: 300px;
+    }
+    .product-price {
+        grid-area: div2;
+        width: 400px;
+    }
+    .product-price button {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+    .product-price span {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+}
