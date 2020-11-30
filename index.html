@@ -29,7 +29,8 @@
         <!-- <script src="js/components/article.js"></script>
         <script src="js/pages/productsList.js"></script>
         <script src="js/app.js" defer></script> -->
-        <script src="js/common.js"></script>
+        <script src="js/basket.js"></script>
+        <script src="js/common.js"defer></script>
         <script src="js/index.js" defer></script>
 
     <!-- Open Graph et Twitter-->
@@ -61,17 +62,16 @@
             <ul>
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="#">À propos</a></li>
-                <li class="basket">
-                    <a href="basket.html">
-                        <i class="fas fa-shopping-basket"></i>Panier<span>0</span>
-                    </a></li>
+                <li class="basket" onclick="showHideBasketContent()">
+                        <i class="fas fa-shopping-basket"></i>Panier<span id="basketQty">0</span>
+                        <div id="basketResume"></div></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <div class="container">
-            <div class="image">
+        <!--     <div class="image">
                 <img src="">
                 <h2></h2>
                 <h3 class="prix"></h3>
@@ -105,7 +105,7 @@
                 <h3 class="prix"></h3>
                 <a class="add-basket basket5">ajouter au panier</a>
                 <button class="info" href="product.html">+ d'infos</button>
-            </div>
+            </div> -->
         </div>
     </main>
 

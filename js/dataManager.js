@@ -33,4 +33,23 @@ class DataManager {
     // this.products[productInfo._id]
     callbackFunction(productInfo);
   }
+
+/*
+  getBasketContent(){
+    //récupère le panier stocké dans le local storage
+  }
+
+
+  setBasketContent(){
+    //défini le panier stocké dans le localstorage
+  }
+  */
+
+async getBasketContent(showQuantity,callbackFunction) {
+  const response = await fetch(this.source);
+  console.log(`response status is ${response.status}`);
+  const setBasketContent = await response.json();
+  // this.products[productInfo._id]
+  callbackFunction(setBasketContent);
+ }
 }
