@@ -39,17 +39,30 @@ class DataManager {
     //récupère le panier stocké dans le local storage
   }
 
+ */
 
-  setBasketContent(){
-    //défini le panier stocké dans le localstorage
+  /**
+   * enregistre le contenu du panier dans le localstorage
+   * 
+   * @param   {Array}  basket  le contenu du panier
+   *
+   * @return  {void}
+   */
+  setBasketContent(basket){
+    localStorage.setItem("basket", JSON.stringify(basket));
   }
-  */
 
-async getBasketContent(showQuantity,callbackFunction) {
-  const response = await fetch(this.source);
-  console.log(`response status is ${response.status}`);
-  const setBasketContent = await response.json();
-  // this.products[productInfo._id]
-  callbackFunction(setBasketContent);
+  /**
+   * retourne le contenu du panier stocké dans le session storage
+   *
+   * @return  {Array}  le tableau représentant le contenu du panier
+   */
+  getBasketContent() {
+    let basketContent = localStorage.getItem("basket");
+    if (basketContent === null) {
+      this.setBasketContent([]);
+      return [];
+    }
+    return JSON.parse(basketContent);
  }
 }

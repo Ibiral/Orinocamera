@@ -1,4 +1,5 @@
 dataManager.getDataFromDatabase(afficheProduits);
+const cart = new Basket();
 
 /**
  * affiche les prduits dans le main
@@ -12,22 +13,12 @@ function afficheProduits(listeDesProduits) {
   let data;
   for (let i = 0, size = listeDesProduits.length; i < size; i++) {
     data = listeDesProduits[i];
-    
-    /*
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    imageUrl: "http://localhost:3000/images/vcam_1.jpg"
-    lenses: (2) ["35mm 1.4", "50mm 1.6"]
-    name: "Zurss 50S"
-    price: 49900
-    _id: "5be1ed3f1c9d44000030b061"
-    */
-
     contenu += `
     <div class="image">
         <img src="${data.imageUrl}" alt="Appareil photo Katatone">
         <h2>${data.name}</h2>
         <h3 class="prix">${data.price / 100}€</h3>
-        <a class="add-basket basket2">ajouter au panier</a>
+        <a class="add-basket basket2" onclick="cart.add('${data._id}')">ajouter au panier</a>
         <a class="info" href="product.html?${data._id}">+ d'infos</a>
     </div>
     `;
