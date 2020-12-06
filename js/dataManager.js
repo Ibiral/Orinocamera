@@ -65,4 +65,9 @@ class DataManager {
     }
     return JSON.parse(basketContent);
  }
+ getProductInfo(idProduct){
+  for(let i=0, size = this.products.length; i<size; i++){
+   if(this.products[i]._id === idProduct) return this.products[i];
+  }
+}
 }

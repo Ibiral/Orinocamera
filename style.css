@@ -178,6 +178,21 @@ footer p:hover {
     color: white;
 }
 
+div#basketResume img {
+    width: 50px;
+  }
+  
+  div#basketResume article{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #d8bbbb;
+  }
+  
+  div#basketResume {
+    width: 200px;
+    border: 1px solid;
+  }
 
 /* BASKET.HTML */
 

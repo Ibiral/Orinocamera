@@ -20,7 +20,21 @@ class Basket{
         this.qtyIndicator.innerHTML = this.content.length;
     }
         templateResume(){
-        return "coucou";
+          let text = "";
+          let product;
+          for(let i=0, size = this.content.length; i< size; i++){
+            console.log(this.content[i]);
+            product = dataManager.getProductInfo(this.content[i]);
+            text +=`
+              <article>
+                <img src="${product.imageUrl}">
+                <h5>${product.name}</h5>
+                <aside>${product.price/100}€</aside>
+              </article>
+            `;
+          }
+    
+          return text;
       }
   
       add(product){
@@ -28,5 +42,4 @@ class Basket{
         this.showQuantity();
         dataManager.setBasketContent(this.content);
       }
-
 }
