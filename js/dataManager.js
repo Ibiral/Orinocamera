@@ -30,7 +30,6 @@ class DataManager {
     const response = await fetch(this.source+"/"+idProduct);
     console.log(`response status is ${response.status}`);
     const productInfo = await response.json();
-    // this.products[productInfo._id]
     callbackFunction(productInfo);
   }
 

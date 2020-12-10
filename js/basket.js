@@ -4,7 +4,6 @@ class Basket{
         this.qtyIndicator = document.querySelector("#basketQty");
         this.resumeInDOM = document.querySelector("#basketResume");
         this.showQuantity();
-
     }
 
     showHideContent(){
@@ -14,7 +13,6 @@ class Basket{
         }
         this.resumeInDOM.innerHTML = "";
       }
-
 
     showQuantity(){
         this.qtyIndicator.innerHTML = this.content.length;
@@ -29,12 +27,11 @@ class Basket{
               <article>
                 <img src="${product.imageUrl}">
                 <h5>${product.name}</h5>
-                <aside>${product.price/100}€</aside>
+                <span>${product.price/100}€</span>
               </article>
             `;
           }
-    
-          return text;
+          return text + "<button href='../basket.html'>Voir mon Panier</button>";
       }
   
       add(product){
