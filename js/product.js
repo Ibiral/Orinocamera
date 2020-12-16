@@ -26,4 +26,3 @@ document.querySelector("#description").innerHTML= donnees.description;
 document.querySelector("#lentilles").innerHTML = variantes;
 document.querySelector("#selected-price").innerHTML= donnees.price /100 + "€";   
 }
-

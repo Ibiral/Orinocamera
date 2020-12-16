@@ -19,8 +19,9 @@
 
     <!--Js-->
     <script src="js/dataManager.js"></script>
-    <script src="js/common.js"></script>
-    <script src="js/product.js" defer></script>
+    <script src="js/common.js" ></script>
+    <script src="js/product.js"defer></script>
+    
 
     <!-- Open Graph et Twitter-->
     <meta property="og:type" content="website">
@@ -51,10 +52,10 @@
             <ul>
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="#">À propos</a></li>
-                <li class="basket">
-                    <a href="basket.html">
-                        <i class="fas fa-shopping-basket"></i>Panier<span>0</span>
-                    </a></li>
+                <li class="basket" onclick="cart.showHideContent()">
+                    <i class="fas fa-shopping-basket"></i>Panier<span id="basketQty">0</span>
+                    <div id="basketResume"></div>
+                   </li>
             </ul>
         </nav>
     </header>

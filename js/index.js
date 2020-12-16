@@ -1,5 +1,5 @@
 dataManager.getDataFromDatabase(afficheProduits);
-const cart = new Basket();
+
 
 /**
  * affiche les produits dans le .container

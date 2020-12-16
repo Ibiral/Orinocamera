@@ -26,10 +26,11 @@ class DataManager {
    *
    * @return  {void}                        appelle la fonction passée en argument (callbackFunction) en lui passant comme arguments les données reçues
    */
-  async getProductFromDatabase(idProduct,callbackFunction) {
-    const response = await fetch(this.source+"/"+idProduct);
+  async getProductFromDatabase(idProduct, callbackFunction = null) {
+    const response = await fetch(this.source +"/"+ idProduct);
     console.log(`response status is ${response.status}`);
     const productInfo = await response.json();
+    if (callbackFunction === null) return productInfo;
     callbackFunction(productInfo);
   }
 
@@ -47,7 +48,7 @@ class DataManager {
    *
    * @return  {void}
    */
-  setBasketContent(basket){
+  setBasketContent(basket) {
     localStorage.setItem("basket", JSON.stringify(basket));
   }
 
@@ -64,9 +65,16 @@ class DataManager {
     }
     return JSON.parse(basketContent);
  }
- getProductInfo(idProduct){
-  for(let i=0, size = this.products.length; i<size; i++){
-   if(this.products[i]._id === idProduct) return this.products[i];
+ async getProductInfo(idProduct) {
+  if (this.products === null){
+    const data =  await this.getProductFromDatabase(idProduct, null) ;
+    console.log(data)
+    return data;
+  }
+
+
+  for (let i = 0, size = this.products.length; i < size; i++) {
+    if (this.products[i]._id === idProduct) return this.products[i];
   }
 }
 }
