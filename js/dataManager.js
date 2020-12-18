@@ -5,7 +5,7 @@ class DataManager {
   }
 
   /**
-   * var chercher les données sur une API et les enregistrer puis appelle une fonction 
+   * va chercher les données sur une API et les enregistrer puis appelle une fonction 
    *
    * @param   {Function}  callbackFunction  fonction a appeler quand les données seront récupérées
    *
@@ -19,7 +19,7 @@ class DataManager {
   }
 
     /**
-   * var chercher les données d'un produit sur une API puis appelle une fonction 
+   * va chercher les données d'un produit sur une API puis appelle une fonction 
    *
    * @param   {String}    idProduct         l'id du produit
    * @param   {Function}  callbackFunction  fonction a appeler quand les données seront récupérées

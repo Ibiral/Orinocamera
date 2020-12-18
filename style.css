@@ -370,6 +370,28 @@ main p {
     padding-top: 10px;
 }
 
+/*congrats.html*/
+
+#congratulation {
+    width: 70%;
+    margin: 70px auto;
+    padding: 20px;
+    border: 2px dashed darkred;
+    background-color: mediumpurple;
+    font-size: 2em;
+    word-break: break-word;
+}
+
+#deletPopup {
+    width: 15px;
+    position: relative;
+    bottom: 160px;
+    left: 710px;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
 
 /*RESPONSIVE DESIGN*/
 

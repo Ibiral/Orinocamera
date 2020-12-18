@@ -14,13 +14,11 @@ function afficheInformation(donnees){
 
     let variantes = "";
     for (let i=0, size=donnees.lenses.length; i<size; i++){
-        // variantes+= `<input type="radio" name= "lense${i}" id="carte${i}" value="lense${i}">
         variantes+= `<input type="radio" name= "lense" id="carte" value="lense">
         <label for="lense${i}">${donnees.lenses[i]}</label><br>`;
     }
 
 document.querySelector("#imageContainer").innerHTML = `<img src="${donnees.imageUrl}" class="photo" alt="Appareil photo ${donnees.name}">`;
-// document.querySelector("#imageContainer").innerHTML = donnnes.imageUrl;
 document.querySelector("#product-name").innerHTML= donnees.name;
 document.querySelector("#description").innerHTML= donnees.description;
 document.querySelector("#lentilles").innerHTML = variantes;

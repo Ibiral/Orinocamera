@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description"
+        content="Orinocamera est le leader des boutiques en ligne des appareils photo et de caméras vintage du premier choix.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index,follow">
+    <link rel="shortcut icon" type="image/jpg" href="images/favicon.jpg">
+
+
+    <!--css-->
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css"
+        integrity="sha512-oc9+XSs1H243/FRN9Rw62Fn8EtxjEYWHXRvjS43YtueEewbS6ObfXcJNyohjHqVKFPoXXUxwc+q1K7Dee6vv9g=="
+        crossorigin="anonymous" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+
+    <!--Js-->
+    <script src="js/dataManager.js"></script>
+    <script src="js/basket.js"></script>
+    <script src="js/common.js" defer></script>
+    <script src="js/index.js" defer></script>
+
+    <!-- Open Graph et Twitter-->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Orinocamera Vintage | Specialiste de la photo">
+    <meta property="og:description"
+        content="Orinocamera est le leader des boutiques en ligne des appareils photo et de caméras vintage du premier choix.">
+    <meta property="og:url" content="https://ibiral.github.io/oricamera/">
+    <meta property="og:site_name" content="orinocamera">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@orinocamera">
+    <meta name="twitter:title" content="Orinocamera Vintage | Specialiste de la photo">
+    <meta property="twitter:description"
+        content="Orinocamera est le leader des boutiques en ligne des appareils photo et de caméras vintage du premier choix.">
+
+    <title>Congratulations</title>
+</head>
+
+<body>
+    <header>
+        <div class="overlay"></div>
+        <nav>
+            <a href="index.html">
+                <h1>ORINOCAMERA
+                    <span><i class="fas fa-camera-retro"></i></span>
+                </h1>
+            </a>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="#">À propos</a></li>
+                <li class="basket" onclick="cart.showHideContent()">
+                    <i class="fas fa-shopping-basket"></i>Panier<span id="basketQty">0</span>
+                    <div id="basketResume"></div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="congratulation">
+            <p>Merci de votre confiance !</p>
+            <p>Votre commande sera envoyée dans les meilleurs délais.</p>
+            <p>N° de commande : <span id="order">5be9c4c71c9d440000a730e9</span></p>
+            <button id="deletPopup">x</button>
+        </div>
+    </main>
+
+    <footer>
+        <p class="legal-notice">Mentions légales</p>
+        <p class="contact">Contactez-nous</p>
+    </footer>
+</body>
+
+</html>
