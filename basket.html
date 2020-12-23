@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Orinocamera est le leader des boutiques en ligne des appareils photo et de caméras vintage du premier choix.">
+    <meta name="description"
+        content="Orinocamera est le leader des boutiques en ligne des appareils photo et de caméras vintage du premier choix.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="index,follow">
     <link rel="shortcut icon" type="image/jpg" href="images/favicon.jpg">
@@ -20,18 +21,21 @@
     <script src="js/dataManager.js"></script>
     <script src="js/basket.js"></script>
     <script src="js/common.js" defer></script>
+    <script src="js/payment.js" defer></script>
 
     <!-- Open Graph et Twitter-->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Orinocamera Vintage | Specialiste de la photo">
-    <meta property="og:description" content="Orinocamera est le leader des boutiques en ligne des appareils photo et de caméras vintage du premier choix.">
+    <meta property="og:description"
+        content="Orinocamera est le leader des boutiques en ligne des appareils photo et de caméras vintage du premier choix.">
     <meta property="og:url" content="https://ibiral.github.io/oricamera/">
     <meta property="og:site_name" content="orinocamera">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@orinocamera">
     <meta name="twitter:title" content="Orinocamera Vintage | Specialiste de la photo">
-    <meta property="twitter:description" content="Orinocamera est le leader des boutiques en ligne des appareils photo et de caméras vintage du premier choix.">
+    <meta property="twitter:description"
+        content="Orinocamera est le leader des boutiques en ligne des appareils photo et de caméras vintage du premier choix.">
 
     <title>Orinocamera Panier</title>
 </head>
@@ -51,55 +55,29 @@
                 <li class="basket" onclick="cart.showHideContent()">
                     <i class="fas fa-shopping-basket"></i>Panier<span id="basketQty">0</span>
                     <div id="basketResume"></div>
-                   </li>
+                </li>
             </ul>
         </nav>
     </header>
 
     <main>
         <div class="products-container">
-            <div class="product-header">
-                <h5>PRODUIT</h5>
-                <h5>PRIX</h5>
-                <h5>QUANTITIE</h5>
-                <h5>TOTAL</h5>
-            </div>
+            <ul class="product-header">
+                <li>
 
-            <div class="products-basket">
-            <div class="products ">
-                <ul>
-                    <li>PRODUIT 1</li>
-                    <li>PRODUIT 2</li>
-                    <li>PRODUIT 3</li>
-                </ul>
-            </div>
+                    <name>PRODUIT</name>
+                    <price>PRIX</price>
+                    <qty>QUANTITIE</qty>
+                    <total>TOTAL</total>
+                </li>
+            </ul>
 
-            <div class="prices ">
-                <ul>
-                    <li>350,00€</li>
-                    <li>350,00€</li>
-                    <li>350,00€</li>
-                </ul>
-            </div>
-
-            <div class="quantity ">
-                <ul>
-                    <li>1</li>
-                    <li>2</li>
-                    <li>1</li>
-                </ul>
-            </div>
-
-            <div class="total ">
-                <ul>
-                    <li>350,00€</li>
-                    <li>700,00€</li>
-                    <li>350,00€</li>
-                </ul>
-            </div>
+            <!-- <div class="products-basket"> -->
+            <ul id="cartContent" class="products">
+            </ul>
         </div>
+        <div id="totalAmount"></div>
 
-        </div>
 
         <form>
             <h1>Formulaire de paiement</h1>
@@ -108,9 +86,10 @@
                 <h2>mode de paiement</h2>
                 <input type="radio" name="carte" id="carte" value="carte">
                 <label for="carte">Visa - Mastercard</label><br>
-                <input type="radio" name="carte" id="paypal "value="paypal">
-                <label for="paypal">Paypal</label><p>
-                    <label for="email "></label> 
+                <input type="radio" name="carte" id="paypal " value="paypal">
+                <label for="paypal">Paypal</label>
+                <p>
+                    <label for="email "></label>
                     <input type="email " name="email " id="email " required placeholder="pseudo@laposte.fr ">
                     <span id="email "></span>
                 </p>
@@ -173,7 +152,6 @@
                 </p>
                 <br>
                 <button id="btnPayer" input type="submit " value="payer ">payer</button>
-                
             </div>
         </form>
 

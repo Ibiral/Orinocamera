@@ -110,7 +110,7 @@ li.basket:hover {
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 50px;
-    padding-bottom: 100px;
+    /* padding-bottom: 100px; */
 }
 
 .image {
@@ -226,20 +226,37 @@ div#basketResume img {
     margin-top: 50px;
 }
 
-.product-header {
+.product-header, .products {
     width: 500px;
-    max-width: 650px;
-    display: flex;
-    justify-content: space-between;
+    /* max-width: 650px; */
+    /* display: flex; */
+    /* justify-content: space-between; */
     border-bottom: 4px solid lightgrey;
-    margin: 0 auto;
+    /* margin: 0 auto; */
 }
 
-.products-basket {
+#cartContent li, .product-header li {
+    display:flex;
+    width: 100%;
+}
+
+name, total, price, qty {
+    display: block;
+}
+
+name{
+    width:30%;
+}
+
+total, price, qty {
+    width:25%;
+}
+
+/* .products-basket {
     width: 600px;
     display: flex;
     justify-content: space-around;
-}
+} */
 
 ul{
     list-style-type: none;
@@ -248,8 +265,9 @@ ul{
                                                 /* Formulaire */
 
 form {
-    width: 30%;
+    width: 50%;
     margin: auto auto 70px;
+    margin-top: 50px;
     padding: 5px;
     background-color: #b77272;
 }
@@ -417,5 +435,8 @@ main p {
         position: relative;
         top: 0;
         left: 0;
+    }
+    form {
+        width: 30%;
     }
 }

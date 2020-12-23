@@ -19,21 +19,11 @@ class Basket {
     }
         async templateResume() {
           
-		const refactorisedContent = {};
 
-		for (let i = 0, size = this.content.length; i < size; i++) {
-			if (refactorisedContent[this.content[i]] === undefined) {
-				refactorisedContent[this.content[i]] = {
-					qte: 1
-				};
-			} else {
-				refactorisedContent[this.content[i]].qte++;
-			}
-    }
     // Multiplication du même produit
           let text = "";
           let product; 
-          for (const [key, value] of Object.entries(refactorisedContent)) {
+          for (const [key, value] of Object.entries(this.refactorisedContent)) {
             product = await dataManager.getProductInfo(key);
             console.log(product.imageUrl)
             text += `
@@ -51,5 +41,21 @@ class Basket {
         this.content.push(product);
         this.showQuantity();
         dataManager.setBasketContent(this.content);
+      }
+
+      get refactorisedContent(){
+        const newContent = {};
+
+        for (let i = 0, size = this.content.length; i < size; i++) {
+          if (newContent[this.content[i]] === undefined) {
+            newContent[this.content[i]] = {
+              qte: 1
+            };
+          } else {
+            newContent[this.content[i]].qte++;
+          }
+        }
+
+        return newContent;
       }
 }
