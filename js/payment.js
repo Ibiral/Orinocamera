@@ -17,21 +17,21 @@ for (const [key, value] of Object.entries(cart.refactorisedContent)){
     </li>
     
     `;
-    totalAmount += `Total à payer: ${data.price/ 100 * value.qte} €`;
+    totalAmount += `Total à payer: ${data.price/ 100 * value.qte}€`;
 }
+
 document.querySelector("#cartContent").innerHTML = content;
 console.log(content)
 document.querySelector("#totalAmount").innerHTML = totalAmount;
 }
 
-
-
 function extractProductFromArray(allProducts, idProduct){
     for ( let i=0, size = allProducts.length; i<size; i++){
         if (allProducts[i]._id === idProduct) return allProducts[i]
-    }
-    
+    } 
 }
 
 // ${data.name}
 
+// for (let i = 0; i<extractProductFromArray.length; i++) {
+//     return (totalAmount * i) }
