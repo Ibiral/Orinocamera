@@ -224,6 +224,7 @@ div#basketResume img {
     justify-content: space-around;
     margin: 0 auto;
     margin-top: 50px;
+    font-weight: 700;
 }
 
 .product-header, .products {
@@ -269,6 +270,9 @@ ul{
     border-radius: 5px;
 }
 
+#totalAmount {
+    font-weight: 800;
+}
                                                 /* Formulaire */
 
 form {

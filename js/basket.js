@@ -58,4 +58,10 @@ class Basket {
 
         return newContent;
       }
+
+      remove(id){
+        this.content.splice(this.content.indexOf(id), 1);
+        this.showQuantity();
+        dataManager.setBasketContent(this.content);
+      }
 }

@@ -12,17 +12,17 @@ for (const [key, value] of Object.entries(cart.refactorisedContent)){
         <li>
         <name>${data.name}</name>
         <price>${data.price/ 100}€</price>
-        <qty><button class="btnMinus">- </button> ${value.qte} <button class="btnPlus">+ </button></qty>
+        <qty><button class="btnMinus" onclick="remove('${key}')">- </button> ${value.qte} <button class="btnPlus"  onclick="add('${key}')">+ </button></qty>
         <total>${data.price/ 100 * value.qte}€</total>
     </li>
     
     `;
-    totalAmount += `Total à payer: ${data.price/ 100 * value.qte}€`;
+    totalAmount += data.price/ 100 * value.qte;
 }
 
 document.querySelector("#cartContent").innerHTML = content;
 console.log(content)
-document.querySelector("#totalAmount").innerHTML = totalAmount;
+document.querySelector("#totalAmount").innerHTML = `Total à payer: ${totalAmount}€`;
 }
 
 function extractProductFromArray(allProducts, idProduct){
@@ -35,3 +35,13 @@ function extractProductFromArray(allProducts, idProduct){
 
 // for (let i = 0; i<extractProductFromArray.length; i++) {
 //     return (totalAmount * i) }
+
+function add(id){
+    cart.add(id);
+    showCart(dataManager.products);
+}
+
+function remove(id){
+    cart.remove(id);
+    showCart(dataManager.products);
+}
