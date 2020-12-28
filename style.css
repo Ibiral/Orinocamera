@@ -231,7 +231,7 @@ div#basketResume img {
     /* max-width: 650px; */
     /* display: flex; */
     /* justify-content: space-between; */
-    border-bottom: 4px solid #b77272;
+    border-bottom: 4px solid #823232;
     /* margin: 0 auto; */
 }
 
@@ -262,6 +262,13 @@ ul{
     list-style-type: none;
 } 
 
+.btnMinus, .btnPlus {
+    width: 20px;
+    background-color: #823232;
+    color: white;
+    border-radius: 5px;
+}
+
                                                 /* Formulaire */
 
 form {
@@ -269,7 +276,8 @@ form {
     margin: auto auto 70px;
     margin-top: 50px;
     padding: 5px;
-    background-color: #b77272;
+    background-color: #823232;
+    color:white;
 }
 
 form h1 {

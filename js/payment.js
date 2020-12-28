@@ -12,7 +12,7 @@ for (const [key, value] of Object.entries(cart.refactorisedContent)){
         <li>
         <name>${data.name}</name>
         <price>${data.price/ 100}€</price>
-        <qty>${value.qte}</qty>
+        <qty><button class="btnMinus">- </button> ${value.qte} <button class="btnPlus">+ </button></qty>
         <total>${data.price/ 100 * value.qte}€</total>
     </li>
     
