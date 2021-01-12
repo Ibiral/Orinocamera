@@ -14,6 +14,11 @@ class Basket {
         this.resumeInDOM.innerHTML = "";
       }
 
+    /**
+     * [showQuantity description]
+     *
+     * @return  {[type]}  [return description]
+     */
     showQuantity() {
         this.qtyIndicator.innerHTML = this.content.length; //Afficher le nombre d'elements dans le panier
     }
@@ -37,7 +42,15 @@ class Basket {
           return text + "<button onclick='window.location=\"basket.html\"'>Voir mon Panier</button>";
         }
 
+      /**
+       * [add description]
+       *
+       * @param   {[type]}  product  [product description]
+       *
+       * @return  {[type]}           [return description]
+       */
       add(product) {
+        if (product === undefined)  product = window.location.search.slice(1);
         this.content.push(product);
         this.showQuantity();
         dataManager.setBasketContent(this.content);
