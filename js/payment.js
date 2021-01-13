@@ -31,11 +31,6 @@ function extractProductFromArray(allProducts, idProduct){
     } 
 }
 
-// ${data.name}
-
-// for (let i = 0; i<extractProductFromArray.length; i++) {
-//     return (totalAmount * i) }
-
 function add(id){
     cart.add(id);
     showCart(dataManager.products);
@@ -45,3 +40,4 @@ function remove(id){
     cart.remove(id);
     showCart(dataManager.products);
 }
+
