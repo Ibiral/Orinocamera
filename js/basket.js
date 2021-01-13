@@ -38,6 +38,7 @@ class Basket {
         }
 
       add(product) {
+        if (product === undefined)  product = window.location.search.slice(1);
         this.content.push(product);
         this.showQuantity();
         dataManager.setBasketContent(this.content);
