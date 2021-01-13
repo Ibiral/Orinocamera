@@ -272,7 +272,12 @@ ul{
 
 #totalAmount {
     font-weight: 800;
+    border: 3px solid #823232;
+    width: 45%;
+    margin: auto;
+    text-align: center;
 }
+
                                                 /* Formulaire */
 
 form {
