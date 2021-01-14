@@ -110,7 +110,7 @@ li.basket:hover {
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 50px;
-    /* padding-bottom: 100px; */
+    padding-bottom: 100px;
 }
 
 .image {
