@@ -41,28 +41,60 @@ function remove(id){
     showCart(dataManager.products);
 }
 
+// ********Formulaire*******
 
-document.forms["signIn"].addEventListener("submit", function(e) {
- 
-	var erreur;
- 
-	var inputs = this;
- 
-	// Traitement générique
-	for (var i = 0; i < inputs.length; i++) {
-		console.log(inputs[i]);
-		if (!inputs[i].value) {
-			erreur = "Veuillez renseigner tous les champs";
-			break;
-		}
+function checkInput(input, type){
+    console.log("checkInput",input);
+    if(!input.value) throw({
+      "field" : input.id,
+      "msg" : "veuillez renseigner le champs"
+    })
+    switch (type){
+      case "text" : 
+        return input.value;
+      case "email" : 
+        if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(input.value)) return input.value;
+        throw({"field": input.id, "msg":"mauvais format"});
+      default : 
+        break;
     }
-    
-    if (erreur) {
-		e.preventDefault();
-		document.getElementById("erreur").innerHTML = erreur;
-		return false;
-	} else {
-		alert('Formulaire envoyé !');
-	}
-	
-});
+  }
+  
+  const contact = {};
+  
+  document.forms["signIn"].addEventListener("submit", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+  
+    var erreur;
+  
+    var inputs = this;
+  
+    // Traitement générique
+    for (var i = 0; i < inputs.length; i++) {
+      console.log(inputs[i]);
+      try{
+        switch(inputs[i].id){
+          case "famille" : 
+            contact.name = checkInput(inputs[i], "text");
+            updateMsg(inputs[i].id,"");
+            break;
+          case "email" : 
+            contact.email = checkInput(inputs[i], "email");
+            updateMsg(inputs[i].id,"");
+            break;
+          default : 
+            break;
+        }
+      }
+      catch (error){
+        alert("error");
+        updateMsg(error.field, error.msg);
+        console.log(error);
+      }
+    }
+  });
+  
+  updateMsg(elm, msg) =
+    document.getElementById(elm+"Msg").innerHTML = msg;
+  

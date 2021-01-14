@@ -1,3 +1,4 @@
+//src = "http://localhost:3000/api/cameras/"
 class DataManager {
   constructor(src) {
     this.source = src;
@@ -15,7 +16,7 @@ class DataManager {
     const response = await fetch(this.source);
     console.log(`response status is ${response.status}`);
     this.products = await response.json();
-    callbackFunction(this.products);
+  callbackFunction(this.products); // this.products = tous les caractéristiques des produits fournis par l'API
   }
 
     /**
@@ -34,12 +35,6 @@ class DataManager {
     callbackFunction(productInfo);
   }
 
-/*
-  getBasketContent(){
-    //récupère le panier stocké dans le local storage
-  }
-
- */
 
   /**
    * enregistre le contenu du panier dans le localstorage
