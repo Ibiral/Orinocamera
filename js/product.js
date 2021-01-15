@@ -2,7 +2,6 @@ const idProduct = window.location.search.slice(1);
 dataManager.getProductFromDatabase(idProduct,afficheInformation);
 
 
-
 function afficheInformation(donnees){
 
     // description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
@@ -11,7 +10,7 @@ function afficheInformation(donnees){
     // name: "Katatone"
     // price: 59900
     // _id: "5be9c4c71c9d440000a730e9"
-
+console.log(donnees)
     let variantes = "";
     for (let i=0, size=donnees.lenses.length; i<size; i++){
         variantes+= `<input type="radio" name= "lense" id="carte" value="lense">
