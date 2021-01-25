@@ -1,68 +1,71 @@
 class Basket {
-    constructor() {
-        this.content = dataManager.getBasketContent(); // Contient tous les produits
-        this.qtyIndicator = document.querySelector("#basketQty");
-        this.resumeInDOM = document.querySelector("#basketResume");
-        this.showQuantity();
+  constructor() {
+    this.content = dataManager.getBasketContent();
+    this.qtyIndicator = document.querySelector("#basketQty");
+    this.resumeInDOM = document.querySelector("#basketResume");
+    this.showQuantity(); //Afficher le nombre de produits dans le panier
+  }
+
+  async showHideContent() {
+    if (this.resumeInDOM.innerHTML === "") {
+      this.resumeInDOM.innerHTML = await this.templateResume();
+      return;
     }
+    this.resumeInDOM.innerHTML = "";
+  }
 
-    async showHideContent() {
-        if (this.resumeInDOM.innerHTML === "") {
-          this.resumeInDOM.innerHTML = await this.templateResume();
-          return;
-        }
-        this.resumeInDOM.innerHTML = "";
-      }
-
-    showQuantity() {
-        this.qtyIndicator.innerHTML = this.content.length; //Afficher le nombre d'elements dans le panier
-    }
-        async templateResume() {
-          
-
-    // Multiplication du même produit
-          let text = "";
-          let product; 
-          for (const [key, value] of Object.entries(this.refactorisedContent)) {
-            product = await dataManager.getProductInfo(key);
-            console.log(product.imageUrl)
-            text += `
+  showQuantity() {
+    this.qtyIndicator.innerHTML = this.content.length; //Afficher le nombre d'elements dans le panier
+  }
+  
+  /**
+   * // Multiplication du même produit
+   *
+   * @return  {void}  
+   */
+  async templateResume() {
+    let text = "";
+    let product;
+    for (const [key, value] of Object.entries(this.refactorisedContent)) {
+      product = await dataManager.getProductInfo(key);
+      console.log(product.imageUrl)
+      text += `
                     <article>
                       <img src="${product.imageUrl}">
                       <h5>${product.name} X ${value.qte}</h5>
                       <span>${product.price / 100}€</span>
                     </article>
                   `;
-          }
-          return text + "<button onclick='window.location=\"basket.html\"'>Voir mon Panier</button>";
-        }
+    }
+    return text + "<button onclick='window.location=\"basket.html\"'>Voir mon Panier</button>";
+  }
 
-      add(product) {
-        if (product === undefined)  product = window.location.search.slice(1);
-        this.content.push(product);
-        this.showQuantity();
-        dataManager.setBasketContent(this.content);
+  add(product) {
+    if (product === undefined) product = window.location.search.slice(1);
+    this.content.push(product);
+    this.showQuantity();
+    dataManager.setBasketContent(this.content);
+  }
+
+  get refactorisedContent() {
+    const newContent = {};
+
+    for (let i = 0, size = this.content.length; i < size; i++) {
+      if (newContent[this.content[i]] === undefined) {
+        newContent[this.content[i]] = {
+          qte: 1
+        };
+      } else {
+        newContent[this.content[i]].qte++;
       }
+    }
 
-      get refactorisedContent(){
-        const newContent = {};
+    return newContent;
+  }
 
-        for (let i = 0, size = this.content.length; i < size; i++) {
-          if (newContent[this.content[i]] === undefined) {
-            newContent[this.content[i]] = {
-              qte: 1
-            };
-          } else {
-            newContent[this.content[i]].qte++;
-          }
-        }
-
-        return newContent;
-      }
-
-      remove(id){
-        this.content.splice(this.content.indexOf(id), 1);
-        this.showQuantity();
-        dataManager.setBasketContent(this.content);
-      }
+  remove(id) {
+    this.content.splice(this.content.indexOf(id), 1);
+    this.showQuantity();
+    dataManager.setBasketContent(this.content);
+  }
 }

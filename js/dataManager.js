@@ -1,8 +1,20 @@
 //src = "http://localhost:3000/api/cameras/"
 class DataManager {
+
+  /**
+   * source des données API (dans ce projet : "http://localhost:3000/api/cameras/")
+   * @type {String}
+   */
+  source;
+
+  /**
+   * toutes les caractéristiques des produits fournis par l'API
+   * @type {null|Object}
+   */
+  products = null;
+
   constructor(src) {
     this.source = src;
-    this.products = null;
   }
 
   /**
@@ -16,7 +28,7 @@ class DataManager {
     const response = await fetch(this.source);
     console.log(`response status is ${response.status}`);
     this.products = await response.json();
-  callbackFunction(this.products); // this.products = tous les caractéristiques des produits fournis par l'API
+  callbackFunction(this.products); 
   }
 
     /**
@@ -28,7 +40,7 @@ class DataManager {
    * @return  {void}                        appelle la fonction passée en argument (callbackFunction) en lui passant comme arguments les données reçues
    */
   async getProductFromDatabase(idProduct, callbackFunction = null) {
-    const response = await fetch(this.source +"/"+ idProduct);
+    const response = await fetch(this.source + idProduct);
     console.log(`response status is ${response.status}`);
     const productInfo = await response.json();
     if (callbackFunction === null) return productInfo;
@@ -73,3 +85,4 @@ class DataManager {
   }
 }
 }
+

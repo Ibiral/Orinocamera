@@ -51,6 +51,7 @@ function checkInput(input, type){
     })
     switch (type){
       case "text" : 
+      if (input.value.length<=2) throw({"field": input.id, "msg":"mauvais format"})
         return input.value;
       case "email" : 
         if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(input.value)) return input.value;
@@ -90,11 +91,13 @@ function checkInput(input, type){
       catch (error){
         alert("error");
         updateMsg(error.field, error.msg);
-        console.log(error);
+        console.error(error);
       }
     }
   });
   
-  updateMsg(elm, msg) =
+ function updateMsg(elm, msg) {
     document.getElementById(elm+"Msg").innerHTML = msg;
+  }
+    
   

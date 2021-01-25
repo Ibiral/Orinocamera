@@ -1,5 +1,11 @@
 dataManager.getDataFromDatabase(afficheProduits);
 
+// init();
+// async function init(){
+//   const liste = await dataManager.getDataFromDatabase();
+//   afficheProduits(liste)
+// }
+
 
 /**
  * affiche les produits dans le .container
