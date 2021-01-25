@@ -67,12 +67,12 @@ function checkInput(input, type){
     e.preventDefault();
     e.stopPropagation();
   
-    var erreur;
+    let erreur;
   
-    var inputs = this;
+    let inputs = this;
   
     // Traitement générique
-    for (var i = 0; i < inputs.length; i++) {
+    for (let i = 0; i < inputs.length; i++) {
       console.log(inputs[i]);
       try{
         switch(inputs[i].id){

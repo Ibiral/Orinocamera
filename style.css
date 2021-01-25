@@ -33,14 +33,23 @@ header {
 
 nav {
     position: absolute;
-    top: 0;
+    /* top: 0; */
     right: 0;
     left: 0;
     z-index: 2;
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: space-between;
-    padding: 40px 60px 0 60px;
+    /* padding: 40px 60px 0 60px; */
+    display: grid;
+    grid-template-areas:
+        "logo logo"
+        "accueil about"
+        "panier panier";
+    width: 90%;
+    margin: auto;
+    justify-items: center;
+    grid-template-columns: 50% 50%;
 }
 
 nav li {
@@ -480,3 +489,34 @@ li.basket {
     border: 2px solid black;
     border-radius: 5px;
 } */
+
+nav {
+
+    grid-template-columns: 35% 22% 22% 22%;
+        grid-template-areas:
+        "logo accueil about panier";
+        align-items:center ;
+    }
+
+nav a:first-of-type {
+    grid-area: logo;
+}
+nav a:nth-of-type(2) {
+    grid-area: accueil;
+}
+nav a:nth-of-type(3) {
+    grid-area: about;
+}
+nav div {
+    grid-area: panier;
+}
+
+cart {
+    display: block;
+}
+
+header {
+    display: flex;
+    align-items: center;
+}
+
