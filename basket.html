@@ -86,69 +86,70 @@
                 <h2>mode de paiement</h2>
                 <input type="radio" name="carte" id="carte" value="carte">
                 <label for="carte">Visa - Mastercard</label><br>
+                <div class="credit-card">
+                    <h3>Carte de crédit</h3>
+                    <p>
+                        <label for="nom">Nom du propriétaire</label> : <br>
+                        <input type="text" name="nom" id="nom" required value="pseudo">
+                        <span id="nomMsg"></span>
+                    </p>
+                    <p>
+                        <label for="numero">Numéro de carte</label> : <br>
+                        <input type="text" name="numero" id="numero" required  value="12">
+                        <span id="numeroMsg"></span>
+                    </p>
+                    <p>
+                        <label for="code">Code de sécurité</label> : <br>
+                        <input type="text" name="code" id="code" required  value="12">
+                        <span id="codeMsg"></span>
+                    </p>
+                </div>
                 <input type="radio" name="carte" id="paypal" value="paypal">
                 <label for="paypal">Paypal</label>
                 <p>
                     <label for="email"></label>
-                    <input type="email" name="email" id="email" required placeholder="pseudo@laposte.fr">
+                    <input type="email" name="email" id="emailPaypal" required placeholder="pseudo@laposte.fr" value="pseudo@laposte.fr">
                     <span id="emailPaypal"></span>
                 </p>
 
             </div>
 
-            <div class="credit-card">
-                <h3>Carte de crédit</h3>
-                <p>
-                    <label for="nom">Nom du propriétaire</label> : <br>
-                    <input type="text" name="nom" id="nom" required>
-                    <span id="nomMsg"></span>
-                </p>
-                <p>
-                    <label for="numero">Numéro de carte</label> : <br>
-                    <input type="text" name="numero" id="numero" required>
-                    <span id="numeroMsg"></span>
-                </p>
-                <p>
-                    <label for="code">Code de sécurité</label> : <br>
-                    <input type="text" name="code" id="code" required>
-                    <span id="codeMsg"></span>
-                </p>
-            </div>
+            
 
             <div class="infos">
                 <h2>Coordonnées personnelles</h2>
                 <p>
                     <label for="famille">Votre nom</label> : <br>
-                    <input type="text" name="famille" id="famille" required>
+                    <input type="text" name="famille" id="famille" required value="pseudo">
                     <span id="familleMsg"></span>
                 </p>
                 <p>
                     <label for="prenom">Votre prénom</label> : <br>
-                    <input type="text" name="prenom" id="prenom" required>
+                    <input type="text" name="prenom" id="prenom" required value="pseud">
                     <span id="prenomMsg"></span>
                 </p>
                 <p>
                     <label for="email">Courriel</label> : <br>
-                    <input type="email" name="email" id="email" required placeholder="pseudo@laposte.fr ">
+                    <input type="email" name="email" id="email" required placeholder="pseudo@laposte.fr"  value="pseudo@laposte.fr">
                     <span id="emailMsg"></span>
                 </p>
 
                 <p>
                     <label for="adresse">Votre adresse postale</label> : <br>
-                    <input type="text" name="adresse" id="adresse" required>
+                    <input type="text" name="adresse" id="adresse" required value="75006">
                     <span id="adresseMsg"></span>
                 </p>
 
                 <p>
                     <label for="ville">Votre ville</label> : <br>
-                    <input type="text" name="ville" id="ville" required>
+                    <input type="text" name="ville" id="ville" required value="Paris">
                     <span id="villeMsg"></span>
                 </p>
 
                 <p>
                     <label for="code-postal">Votre code postal</label> : <br>
-                    <input type="text" name="code-postal" id="code-postal" required>
-                    <span id="code-postalMsg"></span>
+                    <input type="text" name="code-postal" id="codePostal" required  value="75006">
+                    <span id="codePostalMsg"></span>
                 </p>
                 <br>
                 <button id="btnPayer" input type="submit" value="payer">payer</button>
