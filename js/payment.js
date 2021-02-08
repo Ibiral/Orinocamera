@@ -90,6 +90,7 @@ function formValid(e) {
   e.preventDefault();
   let domMsgField;
   let fieldValue;
+  //Validation de 'expected'
   const validations = {
     text: /^[a-zA-Z'éèêÏÎé][a-zéèêçiï]+([-'\s][a-zA-Z'éèêÏÎé][a-zéèêçiï]+)?/,
     email: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
@@ -98,8 +99,8 @@ function formValid(e) {
   }
 
   for (let i = 0, size = toCheck.length; i < size; i++) {
-    fieldValue = document.getElementById(toCheck[i].targetId).value;
-    domMsgField = document.getElementById(toCheck[i].msgField);
+    fieldValue = document.getElementById(toCheck[i].targetId).value; //La valeur entrée par l'utilisateur
+    domMsgField = document.getElementById(toCheck[i].msgField); //Message à afficher en cas d'erreur
     if (fieldValue === "") {
       domMsgField.textContent = "Champ obligatoire"
       domMsgField.style.color = "red";
@@ -112,37 +113,8 @@ function formValid(e) {
       domMsgField.style.fontWeight = "bold";
       return;
     }
-    domMsgField.textContent = "";
+    // il faut corriger l'imput précédent avant de renseigner le champ suivant
+    domMsgField.textContent = ""; 
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-// let validation = document.getElementById('btnPayer');
-// let famille = document.getElementById('famille');
-// let familleMissing = document.getElementById('familleMsg');
-// let familleValid = /^[a-zA-Z'éèêÏÎé][a-zéèêçiï]+([-'\s][a-zA-Z'éèêÏÎé][a-zéèêçiï]+)?/;
-
-// function formValid(e) {
-//   if(famille.validity.valueMissing) {
-//     e.preventDefault();
-//     familleMissing.textContent = 'Champ obligatoire'
-//     familleMissing.style.color = "red";
-//     familleMissing.style.fontWeight = "bold";
-//   } else if(familleValid.test(famille.value) === false) {
-//     e.preventDefault();
-//     familleMissing.textContent = 'Format incorrect';
-//     familleMissing.style.color = 'orange';
-//     familleMissing.style.fontWeight = "bold";
-//   } else{
-
-//   }
-// }
