@@ -420,14 +420,8 @@ main p {
     word-break: break-word;
 }
 
-#deletPopup {
-    width: 15px;
-    position: relative;
-    bottom: 160px;
-    left: 710px;
-    background-color: red;
-    color: white;
-    cursor: pointer;
+main p span {
+    background-color: lightcoral;
 }
 
 

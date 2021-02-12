@@ -1,10 +1,11 @@
 dataManager.getDataFromDatabase(showCart);
+let totalAmount = 0;
+
 
 function showCart(allProducts) {
   console.log("---", allProducts)
   let data;
   let content = "";
-  let totalAmount = 0;
   for (const [key, value] of Object.entries(cart.refactorisedContent)) {
     console.log(key, value)
     data = extractProductFromArray(allProducts, key);
@@ -86,7 +87,7 @@ const toCheck = [
 
 ]
 
-function formValid(e) {
+async function formValid(e) {
   e.preventDefault();
   let domMsgField;
   let fieldValue;
@@ -116,5 +117,20 @@ function formValid(e) {
     // il faut corriger l'imput précédent avant de renseigner le champ suivant
     domMsgField.textContent = ""; 
   }
-}
 
+  // ********Envoi des informations au serveur*******
+
+  const contact = {
+    firstName: document.getElementById("prenom").value,
+    lastName: document.getElementById("famille").value,
+    address: document.getElementById("adresse").value,
+    city: document.getElementById("ville").value,
+    email: document.getElementById("email").value
+  };
+  const result = await dataManager.sendDataToDatabase({
+    contact : contact, //Les données renseignées dans le formulaire de paiment
+    products : cart.content //les produits selectionnés dans le panier
+  });
+  dataManager.saveOrder({...result, "total":totalAmount});
+  window.location = "./congrats.html?"+result.orderId;
+}

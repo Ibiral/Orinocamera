@@ -52,7 +52,7 @@ class Basket {
 
     for (let i = 0, size = this.content.length; i < size; i++) {
       if (newContent[this.content[i]] === undefined) {
-        newContent[this.content[i]] = {
+        newContent[this.content[i]] = { 
           qte: 1
         };
       } else {
@@ -67,5 +67,11 @@ class Basket {
     this.content.splice(this.content.indexOf(id), 1);
     this.showQuantity();
     dataManager.setBasketContent(this.content);
+  }
+
+  clear(){
+    this.content = [];
+    dataManager.setBasketContent(this.content);
+    this.showQuantity();
   }
 }
