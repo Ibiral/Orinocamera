@@ -214,10 +214,8 @@ div#basketResume img {
   }
   
   div#basketResume {
-    position: absolute;
     width: 230px;
     border: #823232 2px solid;
-    margin-left: -3rem;
   }
 
 /* BASKET.HTML */
@@ -489,17 +487,13 @@ li.basket {
 } */
 
 nav {
-
-grid-template-columns: 35% 22% 22% 22%;
-
-grid-template-areas:
-
-"logo accueil about panier";
-
-align-items:center;
-
-grid-template-rows: 2rem;
-
+grid-template-columns: 1fr 1fr;
+align-items:center;
+grid-template-rows: 2rem 2rem auto;
+grid-template-areas:
+"logo logo"
+"accueil about"
+"panier panier";
 }
 
 nav a:first-of-type {
@@ -516,7 +510,7 @@ nav div {
 }
 
 nav a:nth-of-type(2), nav a:nth-of-type(3) {
-    width: 50%;
+    /* width: 50%; */
     height: 50%;
     text-align: center;
     background-color: #823232;
@@ -530,9 +524,9 @@ cart.basket{
     color: #fff;
     font-weight: 600;
     border-radius: 5px;
-    width: 80%;
     text-align: center;
     padding-left: 1rem;
+    grid-area: panier;
 }
 
 button {
@@ -556,4 +550,19 @@ header {
 
 .products-container {
     align-items: center;
+}
+
+@media screen AND (min-width:768px){
+    nav {grid-template-columns: 35% 22% 22% 22%;grid-template-areas:
+"logo accueil about panier";grid-template-rows: 2rem;}
+      div#basketResume {
+    position: absolute;
+    margin-left: -6rem;
+  }
+  cart.basket{
+    width: 80%;
+}
+nav a:nth-of-type(2), nav a:nth-of-type(3) {
+    width: 50%;
+}
 }
