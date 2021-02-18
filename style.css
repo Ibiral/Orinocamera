@@ -32,12 +32,12 @@ header {
 }
 
 nav {
-    position: absolute;
+    /* position: absolute; */
     /* top: 0; */
     right: 0;
     left: 0;
     z-index: 2;
-    display: flex;
+    /* display: flex; */
     /* flex-wrap: wrap; */
     justify-content: space-between;
     /* padding: 40px 60px 0 60px; */
@@ -50,6 +50,7 @@ nav {
     margin: auto;
     justify-items: center;
     grid-template-columns: 50% 50%;
+    /* height: 2rem; */
 }
 
 nav li {
@@ -97,11 +98,8 @@ li.basket:hover {
 }
 
 .basket i {
-    vertical-align: top;
     font-size: 20px;
-    padding-top: 1px;
     padding-right: 5px;
-    color: white;
     cursor: pointer;
     text-decoration: none;
 }
@@ -212,12 +210,14 @@ div#basketResume img {
     display:flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    background-color: #d8bbbb;
+    background-color: #945757;
   }
   
   div#basketResume {
+    position: absolute;
     width: 230px;
-    border: 1px solid;
+    border: #823232 2px solid;
+    margin-left: -3rem;
   }
 
 /* BASKET.HTML */
@@ -227,7 +227,9 @@ div#basketResume img {
     justify-content: space-around;
     margin: 0 auto;
     margin-top: 50px;
-    font-weight: 700;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .product-header, .products {
@@ -237,6 +239,7 @@ div#basketResume img {
     /* justify-content: space-between; */
     border-bottom: 4px solid #823232;
     /* margin: 0 auto; */
+    font-weight: 550;
 }
 
 #cartContent li, .product-header li {
@@ -276,9 +279,10 @@ ul{
 #totalAmount {
     font-weight: 800;
     border: 3px solid #823232;
-    width: 45%;
+    width: 500px;
     margin: auto;
     text-align: center;
+    /* max-width: 650px; */
 }
 
                                                 /* Formulaire */
@@ -486,11 +490,17 @@ li.basket {
 
 nav {
 
-    grid-template-columns: 35% 22% 22% 22%;
-        grid-template-areas:
-        "logo accueil about panier";
-        align-items:center ;
-    }
+grid-template-columns: 35% 22% 22% 22%;
+
+grid-template-areas:
+
+"logo accueil about panier";
+
+align-items:center;
+
+grid-template-rows: 2rem;
+
+}
 
 nav a:first-of-type {
     grid-area: logo;
@@ -505,8 +515,38 @@ nav div {
     grid-area: panier;
 }
 
-cart {
+nav a:nth-of-type(2), nav a:nth-of-type(3) {
+    width: 50%;
+    height: 50%;
+    text-align: center;
+    background-color: #823232;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+cart.basket{
+    background-color: #823232;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 5px;
+    width: 80%;
+    text-align: center;
+    padding-left: 1rem;
+}
+
+button {
+    background-color: #823232;
+    color: white;
+    font-weight: 600;
+    border: 2px solid black;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.cart {
     display: block;
+    /* padding-top: 3rem; */
 }
 
 header {
@@ -514,3 +554,6 @@ header {
     align-items: center;
 }
 
+.products-container {
+    align-items: center;
+}
