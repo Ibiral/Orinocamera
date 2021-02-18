@@ -49,7 +49,7 @@ class DataManager {
 
 
   /**
-   * enregistre le contenu du panier dans le localstorage
+   * enregistre le contenu du panier dans le localStorage
    * 
    * @param   {Array}  basket  le contenu du panier
    *
@@ -60,9 +60,9 @@ class DataManager {
   }
 
   /**
-   * retourne le contenu du panier stocké dans le session storage
+   * retourne le contenu du panier stocké dans le session storage (localStorage)
    *
-   * @return  {Array}  le tableau représentant le contenu du panier
+   * @return  {Array}  un tableau représentant le contenu du panier
    */
   getBasketContent() {
     let basketContent = localStorage.getItem("basket");
@@ -72,6 +72,7 @@ class DataManager {
     }
     return JSON.parse(basketContent);
   }
+
   async getProductInfo(idProduct) {
     if (this.products === null) {
       const data = await this.getProductFromDatabase(idProduct, null);
@@ -79,12 +80,11 @@ class DataManager {
       return data;
     }
 
-
     for (let i = 0, size = this.products.length; i < size; i++) {
       if (this.products[i]._id === idProduct) return this.products[i];
     }
   }
-
+  
 
     /**
    * va chercher les données sur une API et les enregistrer puis appelle une fonction 
@@ -120,8 +120,4 @@ class DataManager {
     return data;
   }
 }
-
-
-
-
 

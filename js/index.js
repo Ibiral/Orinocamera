@@ -10,9 +10,9 @@ dataManager.getDataFromDatabase(afficheProduits);
 /**
  * affiche les produits dans le .container
  *
- * @param   {Array}  listeDesProduits  [listeDesProduits description]
+ * @param   {Array}  listeDesProduits  [Un tableau contenant la liste des produits avec leurs caractéristiques]
  *
- * @return  {void}                    [return description]
+ * @return  {void}                     Affichage des produits dans le body de la page d'accueil
  */
 function afficheProduits(listeDesProduits) {
   let contenu = "";
