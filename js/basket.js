@@ -6,6 +6,14 @@ class Basket {
     this.showQuantity(); //Afficher le nombre de produits dans le panier
   }
 
+  /**
+   * Afficher ou cacher le contenu du panier
+   * 
+   * @function    
+   * 
+   * @return {void}   modifie le DOM
+   */
+
   async showHideContent() {
     if (this.resumeInDOM.innerHTML === "") {
       this.resumeInDOM.innerHTML = await this.templateResume();
@@ -14,15 +22,26 @@ class Basket {
     this.resumeInDOM.innerHTML = "";
   }
 
+  /**
+   * Afficher le nombre d'éléments qui se trouvent dans le panier
+   * 
+   * @function    
+   * 
+   * @return {number}   le nombre total des éléments dans le panier
+   */
+
   showQuantity() {
-    this.qtyIndicator.innerHTML = this.content.length; //Afficher le nombre d'elements dans le panier
+    this.qtyIndicator.innerHTML = this.content.length; 
   }
   
   /**
-   * // Multiplication du même produit
+   * Le contenu du panier
    *
-   * @return  {void}  
+   * @function
+   * 
+   * @return  {void}  trois caractéristiques du produit dans le panier (image, nom et prix) + sa quantité.
    */
+
   async templateResume() {
     let text = "";
     let product;
@@ -39,6 +58,7 @@ class Basket {
     }
     return text + "<button onclick='window.location=\"basket.html\"'>Voir mon Panier</button>";
   }
+ 
 
   add(product) {
     if (product === undefined) product = window.location.search.slice(1);

@@ -4,9 +4,9 @@ dataManager.getProductFromDatabase(idProduct,afficheInformation);
 /**
  * Afficher les caracrériqtues d'un produit
  *
- * @param   {Parameters} donnees  [L'argument passé pour recevoir les données d'un produit]
+ * @param   {Parameters} donnees  L'argument passé pour recevoir les données d'un produit
  *
- * @return  {[object]}           [Un objet contenant les caractéristuques d'un produit]
+ * @return  {object}           Un objet contenant les caractéristuques d'un produit
  */
 
 function afficheInformation(donnees){
