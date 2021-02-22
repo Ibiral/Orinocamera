@@ -48,22 +48,20 @@
                 <h1>ORINOCAMERA
                     <span><i class="fas fa-camera-retro"></i></span>
                 </h1>
-            </a>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="#">À propos</a></li>
-                <li class="basket" onclick="cart.showHideContent()">
-                    <i class="fas fa-shopping-basket"></i>Panier<span id="basketQty">0</span>
-                    <div id="basketResume"></div>
-                </li>
-            </ul>
+            </a><a href="index.html">Accueil</a>
+            <a href="#">À propos</a>
+            <cart class="basket" onclick="cart.showHideContent()">
+                <i class="fas fa-shopping-basket"></i>Panier<span id="basketQty">0</span>
+                <div id="basketResume"></div>
+            </cart>
         </nav>
     </header>
 
     <main>
         <div id="congratulation">
             <p>Merci <span id="clientName">cher Client</span> de votre confiance !</p>
-            <p>Votre commande n° <span id="order"></span> d'un montant total de <span id="prixTotal">0</span> sera envoyée dans les meilleurs délais.</p>
+            <p>Votre commande n° <span id="order"></span> d'un montant total de <span id="prixTotal">0</span> sera
+                envoyée dans les meilleurs délais.</p>
         </div>
     </main>
 

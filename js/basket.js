@@ -11,7 +11,7 @@ class Basket {
    * 
    * @function    
    * 
-   * @return {void}   modifie le DOM
+   * @return {void}   modifie le DOM en affichant ou en cachant le contenu du panier
    */
 
   async showHideContent() {
@@ -27,7 +27,7 @@ class Basket {
    * 
    * @function    
    * 
-   * @return {number}   le nombre total des éléments dans le panier
+   * @return {void}   Modifie le DOM et affiche le nombre total des éléments dans le panier
    */
 
   showQuantity() {
@@ -39,7 +39,7 @@ class Basket {
    *
    * @function
    * 
-   * @return  {void}  trois caractéristiques du produit dans le panier (image, nom et prix) + sa quantité.
+   * @return  {string}  trois caractéristiques du produit dans le panier (image, nom et prix) + sa quantité.
    */
 
   async templateResume() {
@@ -67,6 +67,11 @@ class Basket {
     dataManager.setBasketContent(this.content);
   }
 
+  /**
+   * Regroupement des produits de la même valeur
+   *
+   * @return  {[Array}   la quantité de chaque produit dans le panier
+   */
   get refactorisedContent() {
     const newContent = {};
 

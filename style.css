@@ -255,7 +255,8 @@ h2, h3 {
 }
 
 .product-header, .products {
-    width: 500px;
+    width: 90%;
+    margin: auto;
     border-bottom: 4px solid #823232;
     font-weight: 550;
 }
@@ -291,8 +292,9 @@ ul{
 #totalAmount {
     font-weight: 800;
     border: 3px solid #823232;
-    width: 500px;
+    width: 90%;
     margin: auto;
+    text-align: center;
 }
 
                                                 /* Formulaire */
@@ -477,6 +479,16 @@ p#description, p#lentilles {
         top: 0;
         left: 0;
     }
+
+    .product-header, .products {
+        width: 500px;
+    }
+
+    #totalAmount {
+        width: 500px;
+        margin: auto;
+    }
+
     form {
         width: 30%;
     }
