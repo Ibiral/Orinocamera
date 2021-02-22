@@ -9,6 +9,8 @@ a{
     text-decoration: none;
 }
 
+/* TOUTES LES PAGES */
+
 header {
     background-image: url("images/vcam_5.jpg");
     background-repeat: no-repeat;
@@ -32,15 +34,7 @@ header {
 }
 
 nav {
-    /* position: absolute; */
-    /* top: 0; */
-    right: 0;
-    left: 0;
     z-index: 2;
-    /* display: flex; */
-    /* flex-wrap: wrap; */
-    justify-content: space-between;
-    /* padding: 40px 60px 0 60px; */
     display: grid;
     grid-template-areas:
         "logo logo"
@@ -49,52 +43,86 @@ nav {
     width: 90%;
     margin: auto;
     justify-items: center;
-    grid-template-columns: 50% 50%;
-    /* height: 2rem; */
 }
 
-nav li {
-    list-style: none;
-    display: inline-block;
-    padding-right: 10px;
-    padding-left: 10px;
-    margin-top: 1rem;
-}
+nav {
 
-nav li span {
-    padding-left: 100px;
+    grid-template-columns: 1fr 1fr;
+    
+    align-items:center;
+    
+    grid-template-rows: 2rem 2rem auto;
+    
+    grid-template-areas:
+    
+    
+    "logo logo"
+    
+    
+    "accueil about"
+    
+    
+    "panier panier";
 }
-
-li a {
-    font-size: 1.5em;
+    
+nav a:first-of-type {
+    grid-area: logo;
+}
+nav a:nth-of-type(2) {
+    grid-area: accueil;
+}
+nav a:nth-of-type(3) {
+    grid-area: about;
+}
+nav div {
+    grid-area: panier;
+}
+    
+nav a:nth-of-type(2), nav a:nth-of-type(3) {
     padding: 5px;
+    text-align: center;
+    background-color: #823232;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: 600;
+}
+    
+cart.basket {
+    grid-area: panier;
+    background-color: #823232;
+    color: #fff;
+    padding: 3px;
+    font-weight: 600;
+    border-radius: 5px;
+    text-align: center;
+}
+    
+button {
     background-color: #823232;
     color: white;
+    font-weight: 600;
     border: 2px solid black;
-    border-radius: 5px;
-}
-
-li a:hover {
-    background-color: #cc6e6e;
-}
-
-nav a {
-    text-decoration: none;
-}
-
-li.basket {
-    padding: 5px;
-    font-size: 1.5rem;
-    background-color: #823232;
-    color: white;
-    border: 2px solid black;
-    border-radius: 5px;
+    border-radius: 2px;
     cursor: pointer;
 }
+    
+.cart {
+    display: block;
+}
+    
+header {
+    display: flex;
+    align-items: center;
+}
+    
+.products-container {
+    align-items: center;
+}
 
-li.basket:hover {
-    background-color: #cc6e6e;
+h1 {
     color: white;
+    font-size: 1.6em;
+    font-family: serif;
 }
 
 .basket i {
@@ -104,80 +132,30 @@ li.basket:hover {
     text-decoration: none;
 }
 
-/*INDEX.HTML*/
+span#basketQty {
+    margin-left: 100px;
+}
 
-.container {
-    display: flex;
-    justify-content: center;
+div#basketResume img {
+    width: 50px;
+}
+  
+div#basketResume article{
+    display:flex;
     flex-wrap: wrap;
-    margin-top: 50px;
-    padding-bottom: 100px;
+    justify-content: space-between;
+    background-color: #945757;
 }
-
-.image {
-    margin: 20px;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-}
-
-.add-basket {
-    position: absolute;
-    width: 100%;
-    background-color: darkgrey;
-    transition: all 0.3s ease-in-out;
-    opacity: 0;
-    cursor: pointer;
-    text-align: center;
-}
-
-.image:hover .basket1,
-.image:hover .basket2,
-.image:hover .basket3,
-.image:hover .basket4,
-.image:hover .basket5 {
-    bottom: 50px;
-    opacity: 1;
-    padding: 10px;
-    text-decoration: none;
-}
-
-h1 {
-    color: white;
-    font-size: 1.6em;
-    font-family: serif;
-}
-
-h1 a {
-    text-decoration: none;
-}
-
-h2,
-h3 {
-    text-align: center;
-}
-
-.info {
-    display: block;
-    width: 30%;
-    margin: auto;
-    padding: 5px;
-    background-color: #823232;
-    border: 2px solid black;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-}
-
-.info:hover {
-    background-color: #cc6e6e;
+  
+div#basketResume {
+    width: 230px;
+    border: #823232 2px solid;
 }
 
 footer {
     display: flex;
     justify-content: space-between;
     max-width: 100%;
-    height: 5%;
     padding: 0 20px;
     position: fixed;
     left: 0;
@@ -202,21 +180,67 @@ footer p:hover {
     color: white;
 }
 
-div#basketResume img {
-    width: 50px;
-  }
-  
-  div#basketResume article{
-    display:flex;
+/*INDEX.HTML*/
+
+.container {
+    display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    justify-content: space-between;
-    background-color: #945757;
-  }
-  
-  div#basketResume {
-    width: 230px;
-    border: #823232 2px solid;
-  }
+    margin-top: 50px;
+    padding-bottom: 50px;
+}
+
+.image {
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.add-basket {
+    position: absolute;
+    bottom: 70px;
+    width: 100%;
+    background-color: #823232;
+    color: white;
+    font-weight: 600;
+    transition: all 0.4s ease-in-out;
+    opacity: 0;
+    cursor: pointer;
+    text-align: center;  
+}
+
+.image:hover .basket1,
+.image:hover .basket2,
+.image:hover .basket3,
+.image:hover .basket4,
+.image:hover .basket5 {
+    bottom: 50px;
+    opacity: 1;
+    padding: 10px;
+    text-decoration: none;    
+}
+
+h2, h3 {
+    text-align: center;
+}
+
+.info {
+    display: block;
+    width: 35%;
+    margin: auto;
+    padding: 5px;
+    background-color: #823232;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: white;
+    font-weight: 550;
+    cursor: pointer;
+}
+
+.info:hover {
+    background-color: #cc6e6e;
+}
 
 /* BASKET.HTML */
 
@@ -232,11 +256,7 @@ div#basketResume img {
 
 .product-header, .products {
     width: 500px;
-    /* max-width: 650px; */
-    /* display: flex; */
-    /* justify-content: space-between; */
     border-bottom: 4px solid #823232;
-    /* margin: 0 auto; */
     font-weight: 550;
 }
 
@@ -257,12 +277,6 @@ total, price, qty {
     width:25%;
 }
 
-/* .products-basket {
-    width: 600px;
-    display: flex;
-    justify-content: space-around;
-} */
-
 ul{
     list-style-type: none;
 } 
@@ -279,8 +293,6 @@ ul{
     border: 3px solid #823232;
     width: 500px;
     margin: auto;
-    text-align: center;
-    /* max-width: 650px; */
 }
 
                                                 /* Formulaire */
@@ -320,7 +332,6 @@ div.image img {
     height: 200px;
 }
 
-
 /*PRODUCT.HTML*/
 
 .main {
@@ -358,11 +369,7 @@ h4 {
     font-weight: normal;
 }
 
-/* .selected-product p {
-    margin-bottom: 70px;
-} */
-
-main p {
+p#description, p#lentilles {
     font-size: 0.8em;
     font-family: cursive, verdana, sans-serif;
 }
@@ -422,21 +429,30 @@ main p {
     word-break: break-word;
 }
 
-main p span {
+#clientName, #order, #prixTotal {
     background-color: lightcoral;
 }
 
-
 /*RESPONSIVE DESIGN*/
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
 
-    header{
-        height: 150px; 
+    nav {grid-template-columns: 35% 22% 22% 22%;grid-template-areas:
+        "logo accueil about panier";grid-template-rows: 2rem;
     }
-
-    nav li{
-        margin-top: 0;
+    div#basketResume {
+        position: absolute;
+        margin-left: -2rem;
+        width: 225px;
+        margin: auto;
+        border: #823232 2px solid;
+    }
+    cart.basket{
+        width: 230px;
+        cursor: pointer;
+    }
+    nav a:nth-of-type(2), nav a:nth-of-type(3) {
+        width: 50%;
     }
 
     .main {
@@ -464,105 +480,4 @@ main p span {
     form {
         width: 30%;
     }
-}
-
-/* 
-li.basket {
-    padding: 5px;
-    font-size: 1rem;
-    color: #ffffff;
-    background-color: #823232;
-    border: 2px solid black;
-    border-radius: 5px;
-    cursor: pointer;
-} */
-
-/* li a {
-    font-size: 1.5em;
-    padding: 5px;
-    background-color: #823232;
-    color: white;
-    border: 2px solid black;
-    border-radius: 5px;
-} */
-
-nav {
-grid-template-columns: 1fr 1fr;
-align-items:center;
-grid-template-rows: 2rem 2rem auto;
-grid-template-areas:
-"logo logo"
-"accueil about"
-"panier panier";
-}
-
-nav a:first-of-type {
-    grid-area: logo;
-}
-nav a:nth-of-type(2) {
-    grid-area: accueil;
-}
-nav a:nth-of-type(3) {
-    grid-area: about;
-}
-nav div {
-    grid-area: panier;
-}
-
-nav a:nth-of-type(2), nav a:nth-of-type(3) {
-    /* width: 50%; */
-    height: 50%;
-    text-align: center;
-    background-color: #823232;
-    color: #fff;
-    border-radius: 5px;
-    font-weight: 600;
-}
-
-cart.basket{
-    background-color: #823232;
-    color: #fff;
-    font-weight: 600;
-    border-radius: 5px;
-    text-align: center;
-    padding-left: 1rem;
-    grid-area: panier;
-}
-
-button {
-    background-color: #823232;
-    color: white;
-    font-weight: 600;
-    border: 2px solid black;
-    border-radius: 2px;
-    cursor: pointer;
-}
-
-.cart {
-    display: block;
-    /* padding-top: 3rem; */
-}
-
-header {
-    display: flex;
-    align-items: center;
-}
-
-.products-container {
-    align-items: center;
-}
-
-@media screen AND (min-width:768px){
-    nav {grid-template-columns: 35% 22% 22% 22%;grid-template-areas:
-"logo accueil about panier";grid-template-rows: 2rem;}
-      div#basketResume {
-    position: absolute;
-    margin-left: -6rem;
-  }
-  cart.basket{
-    width: 80%;
-}
-nav a:nth-of-type(2), nav a:nth-of-type(3) {
-    width: 50%;
-}
 }
