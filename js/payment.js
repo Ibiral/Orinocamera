@@ -1,6 +1,13 @@
 dataManager.getDataFromDatabase(showCart);
 let totalAmount = 0;
 
+/**
+ * afficher sur la page de paiement les caracteristiques des produits ajoutés au panier.
+ *
+ * @param   {Array}  allProducts  [Un tableau contenant la liste de tous les produits]
+ *
+ * @return  {void}                 Affichage des caracteristiques des produits dans le body de la page de paiement
+ */
 
 function showCart(allProducts) {
   console.log("---", allProducts)
@@ -22,13 +29,22 @@ function showCart(allProducts) {
   }
 
   document.querySelector("#cartContent").innerHTML = content;
-  console.log(content)
   document.querySelector("#totalAmount").innerHTML = `Total à payer: ${totalAmount}€`;
 }
 
+/**
+ * Extraire des produits du tableau contenant tous les produits 
+ *
+ * @param   {Array}   allProducts         [Un tableau contenant la liste de tous les produits]
+ * @param   {String}  idProduct           L'ID du produit
+ *
+ * @return  {String}                      L'ID du produit et affichage des informations liées à chaque produit dans le panier.
+ */
+
 function extractProductFromArray(allProducts, idProduct) {
   for (let i = 0, size = allProducts.length; i < size; i++) {
-    if (allProducts[i]._id === idProduct) return allProducts[i]
+    if (allProducts[i]._id === idProduct) 
+    return allProducts[i] 
   }
 }
 

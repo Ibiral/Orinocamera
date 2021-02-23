@@ -58,8 +58,15 @@ class Basket {
     }
     return text + "<button onclick='window.location=\"basket.html\"'>Voir mon Panier</button>";
   }
- 
 
+  /**
+   * Ajouter des produits au panier 
+   * 
+   * @param   {String}  product  l'ID du produit ajouté au panier
+   *
+   * @return  {void}  Mise à jour du nombre de produits dans le panier grâce à la fonction showQuantity() puis enregistrer le nouveau panier dans le localStorage grâce à la fonction setBasketContent()
+   */
+ 
   add(product) {
     if (product === undefined) product = window.location.search.slice(1);
     this.content.push(product);
@@ -68,13 +75,14 @@ class Basket {
   }
 
   /**
-   * Regroupement des produits de la même valeur
+   * Assemblage de produits identiques en un seul produit pour éviter la répétition
    *
-   * @return  {[Array}   la quantité de chaque produit dans le panier
+   * @return  {Object}   L'ID et la quantité de chaque produit dans le panier ex: 5be1ed3f1c9d44000030b061: {qte: 4}
    */
+
   get refactorisedContent() {
     const newContent = {};
-
+    console.log(newContent)
     for (let i = 0, size = this.content.length; i < size; i++) {
       if (newContent[this.content[i]] === undefined) {
         newContent[this.content[i]] = { 
@@ -84,15 +92,28 @@ class Basket {
         newContent[this.content[i]].qte++;
       }
     }
-
     return newContent;
   }
+
+  /**
+   * Suppression de produits du panier 
+   * 
+   * @param   {String}  product  l'ID du produit supprimé du panier
+   *
+   * @return  {void}  Mise à jour du nombre de produits dans le panier grâce à la fonction showQuantity() puis enregistrer le nouveau panier dans le localStorage grâce à la fonction setBasketContent()
+   */
 
   remove(id) {
     this.content.splice(this.content.indexOf(id), 1);
     this.showQuantity();
     dataManager.setBasketContent(this.content);
   }
+
+  /**
+   * Vider le panier 
+   * 
+   * @return  {void}  Le panier est remis à zéro en vidant le localStorage grâce à la fonction setBasketContent() puis afficher la quantité 0 dans le panier grâce à la fonction showQuantity()  
+   */
 
   clear(){
     this.content = [];

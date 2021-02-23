@@ -1,12 +1,5 @@
 dataManager.getDataFromDatabase(afficheProduits);
 
-// init();
-// async function init(){
-//   const liste = await dataManager.getDataFromDatabase();
-//   afficheProduits(liste)
-// }
-
-
 /**
  * affiche les produits dans le .container
  *
@@ -14,6 +7,7 @@ dataManager.getDataFromDatabase(afficheProduits);
  *
  * @return  {void}                     Affichage des produits dans le body de la page d'accueil
  */
+
 function afficheProduits(listeDesProduits) {
   let contenu = "";
   let data;
