@@ -1,4 +1,5 @@
 dataManager.getDataFromDatabase(showCart);
+// const basketContent = dataManager.getBasketContent();
 let totalAmount = 0;
 
 /**
@@ -10,7 +11,7 @@ let totalAmount = 0;
  */
 
 function showCart(allProducts) {
-  console.log("---", allProducts)
+  console.log(allProducts)
   let data;
   let content = "";
   for (const [key, value] of Object.entries(cart.refactorisedContent)) {
@@ -25,7 +26,8 @@ function showCart(allProducts) {
     </li>
     
     `;
-    totalAmount += data.price / 100 * value.qte;
+    // totalAmount += data.price / 100 * value.qte;
+    totalAmount += (data.price / 100 * value.qte) * basketContent[i];
   }
 
   document.querySelector("#cartContent").innerHTML = content;
@@ -43,21 +45,36 @@ function showCart(allProducts) {
 
 function extractProductFromArray(allProducts, idProduct) {
   for (let i = 0, size = allProducts.length; i < size; i++) {
-    if (allProducts[i]._id === idProduct) 
-    return allProducts[i] 
+    if (allProducts[i]._id === idProduct)
+      return allProducts[i]
   }
 }
+
+/**
+   * Augmenter le nombre de produits dans le panier
+   * 
+   * @param   {String}  product  l'ID du produit
+   *
+   * @return  {void}  la quantité d'un produit s'incrémente de +1 à chaque clic sur "+" et mise à jour du nombre de produits dans le panier.
+   */
 
 function add(id) {
   cart.add(id);
   showCart(dataManager.products);
 }
 
+/**
+   * Réduire le nombre de produits dans le panier
+   * 
+   * @param   {String}  product  l'ID du produit
+   *
+   * @return  {void}  la quantité d'un produit diminue de -1 à chaque clic sur "-" et mise à jour du nombre de produits dans le panier.
+   */
+
 function remove(id) {
   cart.remove(id);
   showCart(dataManager.products);
 }
-
 
 // ********Formulaire*******
 
@@ -103,6 +120,14 @@ const toCheck = [
 
 ]
 
+/**
+   * Validation du formulaire et envoi des informations au serveur
+   * 
+   * @param   {Event}  e  paramètre passé à AddEventListener
+   *
+   * @return  {Number}    L'ID de la commande généré automatiquement et ouverture de la page de remerciément.
+   */
+
 async function formValid(e) {
   e.preventDefault();
   let domMsgField;
@@ -111,7 +136,7 @@ async function formValid(e) {
   const validations = {
     text: /^[a-zA-Z'éèêÏÎé][a-zéèêçiï]+([-'\s][a-zA-Z'éèêÏÎé][a-zéèêçiï]+)?/,
     email: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-    address: /^[a-zA-Z0-9\s,'-]+[a-zA-Z'éèêÏÎé][a-zéèêçiï]*$/, 
+    address: /^[a-zA-Z0-9\s,'-]+[a-zA-Z'éèêÏÎé][a-zéèêçiï]*$/,
     number: /^((0[1-9])|([1-8][0-9])|(9[0-8])|(2A)|(2B))[0-9]{3}$/
   }
 
@@ -131,7 +156,7 @@ async function formValid(e) {
       return;
     }
     // il faut corriger l'imput précédent avant de renseigner le champ suivant
-    domMsgField.textContent = ""; 
+    domMsgField.textContent = "";
   }
 
   // ********Envoi des informations au serveur*******
@@ -144,9 +169,15 @@ async function formValid(e) {
     email: document.getElementById("email").value
   };
   const result = await dataManager.sendDataToDatabase({
-    contact : contact, //Les données renseignées dans le formulaire de paiment
-    products : cart.content //les produits selectionnés dans le panier
+    contact: contact, //Les données renseignées dans le formulaire de paiment
+    products: cart.content //les produits selectionnés dans le panier
   });
-  dataManager.saveOrder({...result, "total":totalAmount});
-  window.location = "./congrats.html?"+result.orderId;
+
+  dataManager.saveOrder({ ...result, "total": totalAmount }); //Sauvegarder le contact et les produits + le prix total dans le localStorage
+  let invalidOrder = totalAmount === 0;
+  if (invalidOrder) {
+    alert("Commande impossible: Votre panier est vide.");
+  } else if (confirm("Vous êtes sur le point de valider votre commande d'un total de " + totalAmount + "€. Appuyez sur OK pour finaliser.") && totalAmount != 0) {
+    window.location = "./congrats.html?" + result.orderId;
+  }
 }
