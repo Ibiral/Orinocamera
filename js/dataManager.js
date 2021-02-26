@@ -94,7 +94,7 @@ class DataManager {
   }
   
 
-    /**
+  /**
    * Envoi des données utilisateur au serveur 
    *
    * @param   {Object}  data  les données à envoyer au serveur
@@ -117,14 +117,29 @@ class DataManager {
     return response;
   }
 
+  /**
+   * Sauvegarde des informations de la commande
+   *
+   * @param   {Object}  order  l'objet contact et un tableau contenant les produits dans le panier
+   *
+   * @return  {void}   ça sauvegarde les informations de l'utilisateur, un tablau contenant les produits dans le panier et un order_id dans le sessionStorage.
+   */
 
   saveOrder(order){
     sessionStorage.setItem(order.orderId, JSON.stringify(order));
   }
+
+  /**
+   * Récupération de l'ID de la commande du sessionStorage 
+   *
+   * @param   {string}  orderId  L'ID de la commande validée par l'utilisateur
+   *
+   * @return  {JSON}  l'ID de la commande en objet JSON
+   */
   
   getOrder(orderId){
     const data = JSON.parse(sessionStorage.getItem(orderId));
-    sessionStorage.removeItem(orderId);
+    sessionStorage.removeItem(orderId); //effacer l'ID de la commande du sessionStorage
     return data;
   }
 }
