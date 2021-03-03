@@ -14,6 +14,7 @@ function showCart(allProducts) {
   console.log(allProducts)
   let data;
   let content = "";
+  totalAmount = 0;
   for (const [key, value] of Object.entries(cart.refactorisedContent)) {
     console.log(key, value)
     data = extractProductFromArray(allProducts, key);
@@ -24,29 +25,26 @@ function showCart(allProducts) {
         <qty><button class="btnMinus" onclick="remove('${key}')">- </button> ${value.qte} <button class="btnPlus"  onclick="add('${key}')">+ </button></qty>
         <total>${data.price / 100 * value.qte}€</total>
     </li>
-    
     `;
-    // totalAmount += data.price / 100 * value.qte;
-    totalAmount += (data.price / 100 * value.qte) * basketContent[i];
+    totalAmount += data.price / 100 * value.qte;
   }
-
   document.querySelector("#cartContent").innerHTML = content;
   document.querySelector("#totalAmount").innerHTML = `Total à payer: ${totalAmount}€`;
 }
 
 /**
- * Extraire des produits du tableau contenant tous les produits 
+ * Extraire un produit du tableau contenant tous les produits 
  *
  * @param   {Array}   allProducts         [Un tableau contenant la liste de tous les produits]
  * @param   {String}  idProduct           L'ID du produit
  *
- * @return  {String}                      L'ID du produit et affichage des informations liées à chaque produit dans le panier.
+ * @return  {Object}                      les propriétés (price, qte, name) du produit et affichage des informations liées à chaque produit dans le panier.
  */
 
 function extractProductFromArray(allProducts, idProduct) {
   for (let i = 0, size = allProducts.length; i < size; i++) {
     if (allProducts[i]._id === idProduct)
-      return allProducts[i]
+      return allProducts[i];
   }
 }
 
@@ -130,9 +128,14 @@ const toCheck = [
 
 async function formValid(e) {
   e.preventDefault();
+
+  if (totalAmount === 0) {
+    return alert("Commande impossible: Votre panier est vide.");
+  } 
+
   let domMsgField;
   let fieldValue;
-  //Validation de 'expected'
+  //*********Validation de 'expected'***********
   const validations = {
     text: /^[a-zA-Z'éèêÏÎé][a-zéèêçiï]+([-'\s][a-zA-Z'éèêÏÎé][a-zéèêçiï]+)?/,
     email: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
@@ -174,10 +177,8 @@ async function formValid(e) {
   });
 
   dataManager.saveOrder({ ...result, "total": totalAmount }); //Sauvegarder le contact et les produits + le prix total dans le localStorage
-  let invalidOrder = totalAmount === 0;
-  if (invalidOrder) {
-    alert("Commande impossible: Votre panier est vide.");
-  } else if (confirm("Vous êtes sur le point de valider votre commande d'un total de " + totalAmount + "€. Appuyez sur OK pour finaliser.") && totalAmount != 0) {
+
+  if (confirm("Vous êtes sur le point de valider votre commande d'un total de " + totalAmount + "€. Appuyez sur OK pour finaliser.") ) {
     window.location = "./congrats.html?" + result.orderId;
   }
 }
