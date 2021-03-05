@@ -87,7 +87,7 @@ nav a:nth-of-type(2), nav a:nth-of-type(3) {
     font-weight: 600;
 }
     
-cart.basket {
+.basket {
     grid-area: panier;
     background-color: #823232;
     color: #fff;
@@ -266,15 +266,15 @@ h2, h3 {
     width: 100%;
 }
 
-name, total, price, qty {
+.name, .total, .price, .qty {
     display: block;
 }
 
-name{
+.name{
     width:30%;
 }
 
-total, price, qty {
+.total, .price, .qty {
     width:25%;
 }
 
@@ -449,7 +449,7 @@ p#description, p#lentilles {
         margin: auto;
         border: #823232 2px solid;
     }
-    cart.basket{
+    .basket{
         width: 230px;
         cursor: pointer;
     }

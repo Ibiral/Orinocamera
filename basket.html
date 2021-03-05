@@ -12,9 +12,6 @@
 
     <!--css-->
     <link rel="stylesheet" href="style.css" />
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css"
-        integrity="sha512-oc9+XSs1H243/FRN9Rw62Fn8EtxjEYWHXRvjS43YtueEewbS6ObfXcJNyohjHqVKFPoXXUxwc+q1K7Dee6vv9g=="
-        crossorigin="anonymous" /> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
 
     <!--Js-->
@@ -28,7 +25,7 @@
     <meta property="og:title" content="Orinocamera Vintage | Specialiste de la photo">
     <meta property="og:description"
         content="Orinocamera est le leader des boutiques en ligne des appareils photo et de caméras vintage du premier choix.">
-    <meta property="og:url" content="https://ibiral.github.io/oricamera/">
+    <meta property="og:url" content="https://ibiral.github.io/Orinocamera/">
     <meta property="og:site_name" content="orinocamera">
 
     <meta name="twitter:card" content="summary">
@@ -50,10 +47,10 @@
                 </h1>
             </a><a href="index.html">Accueil</a>
             <a href="#">À propos</a>
-            <cart class="basket" onclick="cart.showHideContent()">
-                 <i class="fas fa-shopping-basket"></i>Panier<span id="basketQty">0</span>
+            <div class="basket" onclick="cart.showHideContent()">
+                <i class="fas fa-shopping-basket"></i>Panier<span id="basketQty">0</span>
                 <div id="basketResume"></div>
-            </cart>
+            </div>
         </nav>
     </header>
 
@@ -61,11 +58,10 @@
         <div class="products-container">
             <ul class="product-header">
                 <li>
-
-                    <name>PRODUIT</name>
-                    <price>PRIX</price>
-                    <qty>QUANTITÉ</qty>
-                    <total>TOTAL</total>
+                    <div class="name">PRODUIT</div>
+                    <div class="price">PRIX</div>
+                    <div class="qty">QUANTITÉ</div>
+                    <div class="total">TOTAL</div>
                 </li>
             </ul>
 
@@ -75,17 +71,17 @@
         </div>
         <div id="totalAmount"></div>
 
-            <!-- ***FORMULAIRE DE PAIEMENT*** -->
+        <!-- ***FORMULAIRE DE PAIEMENT*** -->
 
         <form method="POST" id="signIn">
-            <h1>Formulaire de paiement</h1>
+            <h2>Formulaire de paiement</h2>
 
             <div class="pay-mode">
-                <h2>mode de paiement</h2>
+                <h3>mode de paiement</h3>
                 <input type="radio" name="carte" id="carte" value="carte">
                 <label for="carte">Visa - Mastercard</label><br>
                 <div class="credit-card">
-                    <h3>Carte de crédit</h3>
+                    <p>Carte de crédit</p>
                     <p>
                         <label for="nom">Nom du propriétaire</label> : <br>
                         <input type="text" name="nom" id="nom" placeholder="Ryan Giggs">
@@ -107,12 +103,12 @@
                 <p>
                     <label for="email"></label>
                     <input type="email" name="email" id="emailPaypal" placeholder="pseudo@laposte.fr">
-                    <span id="emailPaypal"></span>
+                    <span id="emailPaypalMsg"></span>
                 </p>
 
             </div>
 
-            
+
 
             <div class="infos">
                 <h2>Coordonnées personnelles</h2>
@@ -145,12 +141,12 @@
                 </p>
 
                 <p>
-                    <label for="code-postal">Votre code postal</label> : <br>
-                    <input type="text" name="code-postal" id="codePostal" required  placeholder="75006">
+                    <label for="codePostal">Votre code postal</label> : <br>
+                    <input type="text" name="codePostal" id="codePostal" required placeholder="75006">
                     <span id="codePostalMsg"></span>
                 </p>
                 <br>
-                <button id="btnPayer" input type="submit" value="commander">commander</button>
+                <button id="btnPayer" type="submit" value="commander">commander</button>
             </div>
         </form>
 

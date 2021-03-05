@@ -20,10 +20,10 @@ function showCart(allProducts) {
     data = extractProductFromArray(allProducts, key);
     content += `
         <li>
-        <name>${data.name}</name>
-        <price>${data.price / 100}€</price>
-        <qty><button class="btnMinus" onclick="remove('${key}')">- </button> ${value.qte} <button class="btnPlus"  onclick="add('${key}')">+ </button></qty>
-        <total>${data.price / 100 * value.qte}€</total>
+        <div class="name">${data.name}</div>
+        <div class="price">${data.price / 100}€</div>
+        <div class="qty"><button class="btnMinus" onclick="remove('${key}')">- </button> ${value.qte} <button class="btnPlus"  onclick="add('${key}')">+ </button></div>
+        <div class="total">${data.price / 100 * value.qte}€</div>
     </li>
     `;
     totalAmount += data.price / 100 * value.qte;
