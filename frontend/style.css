@@ -12,7 +12,7 @@ a{
 /* TOUTES LES PAGES */
 
 header {
-    background-image: url("images/vcam_5.jpg");
+    background-image: url("../backend/images/vcam_5.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -161,7 +161,7 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url("images/vcam_4.jpg");
+    background-image: url("../backend/images/vcam_4.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -234,7 +234,7 @@ h2, h3 {
     border: 2px solid black;
     border-radius: 5px;
     color: white;
-    font-weight: 550;
+    font-weight: 600;
     cursor: pointer;
 }
 
@@ -258,7 +258,7 @@ h2, h3 {
     width: 90%;
     margin: auto;
     border-bottom: 4px solid #823232;
-    font-weight: 550;
+    font-weight: 600;
 }
 
 #cartContent li, .product-header li {
@@ -428,7 +428,7 @@ p#description, p#lentilles {
     border: 2px dashed darkred;
     background-color: mediumpurple;
     font-size: 2em;
-    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 #clientName, #order, #prixTotal {

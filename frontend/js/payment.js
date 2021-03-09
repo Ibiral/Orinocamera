@@ -131,7 +131,7 @@ async function formValid(e) {
 
   if (totalAmount === 0) {
     return alert("Commande impossible: Votre panier est vide.");
-  } 
+  }
 
   let domMsgField;
   let fieldValue;
@@ -178,7 +178,7 @@ async function formValid(e) {
 
   dataManager.saveOrder({ ...result, "total": totalAmount }); //Sauvegarder le contact et les produits + le prix total dans le localStorage
 
-  if (confirm("Vous êtes sur le point de valider votre commande d'un total de " + totalAmount + "€. Appuyez sur OK pour finaliser.") ) {
+  if (confirm("Vous êtes sur le point de valider votre commande d'un total de " + totalAmount + "€. Appuyez sur OK pour finaliser.")) {
     window.location = "./congrats.html?" + result.orderId;
   }
 }

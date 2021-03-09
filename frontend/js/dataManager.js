@@ -92,7 +92,7 @@ class DataManager {
       if (this.products[i]._id === idProduct) return this.products[i];
     }
   }
-  
+
 
   /**
    * Envoi des données utilisateur au serveur 
@@ -103,7 +103,7 @@ class DataManager {
    */
   async sendDataToDatabase(data) {
     let response = await fetch(
-      this.source+"order",
+      this.source + "order",
       {
         method: 'POST',
         headers: {
@@ -125,7 +125,7 @@ class DataManager {
    * @return  {void}   ça sauvegarde les informations de l'utilisateur, un tablau contenant les produits dans le panier et un order_id dans le sessionStorage.
    */
 
-  saveOrder(order){
+  saveOrder(order) {
     sessionStorage.setItem(order.orderId, JSON.stringify(order));
   }
 
@@ -136,8 +136,8 @@ class DataManager {
    *
    * @return  {JSON}  l'ID de la commande en objet JSON
    */
-  
-  getOrder(orderId){
+
+  getOrder(orderId) {
     const data = JSON.parse(sessionStorage.getItem(orderId));
     sessionStorage.removeItem(orderId); //effacer l'ID de la commande du sessionStorage
     return data;

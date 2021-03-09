@@ -31,9 +31,9 @@ class Basket {
    */
 
   showQuantity() {
-    this.qtyIndicator.innerHTML = this.content.length; 
+    this.qtyIndicator.innerHTML = this.content.length;
   }
-  
+
   /**
    * Le contenu du panier
    *
@@ -66,7 +66,7 @@ class Basket {
    *
    * @return  {void}  Mise à jour du nombre de produits dans le panier grâce à la fonction showQuantity() puis enregistrer le nouveau panier dans le localStorage grâce à la fonction setBasketContent()
    */
- 
+
   add(product) {
     if (product === undefined) product = window.location.search.slice(1);
     this.content.push(product);
@@ -85,7 +85,7 @@ class Basket {
     console.log(newContent)
     for (let i = 0, size = this.content.length; i < size; i++) {
       if (newContent[this.content[i]] === undefined) {
-        newContent[this.content[i]] = { 
+        newContent[this.content[i]] = {
           qte: 1
         };
       } else {
@@ -115,7 +115,7 @@ class Basket {
    * @return  {void}  Le panier est remis à zéro en vidant le localStorage grâce à la fonction setBasketContent() puis afficher la quantité 0 dans le panier grâce à la fonction showQuantity()  
    */
 
-  clear(){
+  clear() {
     this.content = [];
     dataManager.setBasketContent(this.content);
     this.showQuantity();
