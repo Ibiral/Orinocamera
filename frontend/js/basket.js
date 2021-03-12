@@ -1,5 +1,5 @@
 class Basket {
-  constructor() {
+  constructor() { //initialisation des objets de la class
     this.content = dataManager.getBasketContent();
     this.qtyIndicator = document.querySelector("#basketQty");
     this.resumeInDOM = document.querySelector("#basketResume");
