@@ -112,7 +112,7 @@ class Basket {
   /**
    * Vider le panier 
    * 
-   * @return  {void}  Le panier est remis à zéro en vidant le localStorage grâce à la fonction setBasketContent() puis afficher la quantité 0 dans le panier grâce à la fonction showQuantity()  
+   * @return  {void}  Le panier est remis à zéro en vidant le localStorage grâce à la méthode clear() puis afficher la quantité 0 dans le panier grâce à la fonction showQuantity()  
    */
 
   clear() {

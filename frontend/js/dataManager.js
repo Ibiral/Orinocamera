@@ -134,7 +134,7 @@ class DataManager {
    *
    * @param   {string}  orderId  L'ID de la commande validée par l'utilisateur
    *
-   * @return  {JSON}  l'ID de la commande en objet JSON
+   * @return  {Object}  l'ID de la commande en objet JSON
    */
 
   getOrder(orderId) {
