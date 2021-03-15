@@ -123,7 +123,7 @@ const toCheck = [
    * 
    * @param   {Event}  e  paramètre passé à AddEventListener
    *
-   * @return  {Number}    L'ID de la commande généré automatiquement et ouverture de la page de remerciément.
+   * @return  {String}    L'ID de la commande généré automatiquement et ouverture de la page de remerciément.
    */
 
 async function formValid(e) {
