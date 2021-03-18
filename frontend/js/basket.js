@@ -64,7 +64,7 @@ class Basket {
    * 
    * @param   {String}  product  l'ID du produit ajouté au panier
    *
-   * @return  {void}  Mise à jour du nombre de produits dans le panier grâce à la fonction showQuantity() puis enregistrer le nouveau panier dans le localStorage grâce à la fonction setBasketContent()
+   * @return  {void}  Mise à jour du nombre de produits dans le panier puis les afficher grâce à la fonction showQuantity() puis enregistrer le nouveau panier dans le localStorage grâce à la fonction setBasketContent()
    */
 
   add(product) {
